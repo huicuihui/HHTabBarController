@@ -38,12 +38,12 @@
 
 /* Begin PBXFileReference section */
 		124ACCEA0BA05C2BD515A59B /* Pods_HHTabBarController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HHTabBarController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		248F6EFD3C5424E0CC4EA804 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		248F6EFD3C5424E0CC4EA804 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2A2CE242994A00379810EB5E /* Pods-HHTabBarController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHTabBarController_Tests.release.xcconfig"; path = "Target Support Files/Pods-HHTabBarController_Tests/Pods-HHTabBarController_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3F8103E5E12951F8E32C9004 /* Pods_HHTabBarController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HHTabBarController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		400C102E274157276403049A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		400C102E274157276403049A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		44E69A33E774B4E8CD37F7F9 /* Pods-HHTabBarController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHTabBarController_Tests.debug.xcconfig"; path = "Target Support Files/Pods-HHTabBarController_Tests/Pods-HHTabBarController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		4EAAF8C9E69870A189CD40C5 /* HHTabBarController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = HHTabBarController.podspec; path = ../HHTabBarController.podspec; sourceTree = "<group>"; };
+		4EAAF8C9E69870A189CD40C5 /* HHTabBarController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HHTabBarController.podspec; path = ../HHTabBarController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6003F58A195388D20070C39A /* HHTabBarController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHTabBarController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -193,7 +193,6 @@
 				44E69A33E774B4E8CD37F7F9 /* Pods-HHTabBarController_Tests.debug.xcconfig */,
 				2A2CE242994A00379810EB5E /* Pods-HHTabBarController_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +257,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

@@ -1,0 +1,6 @@
+framework module HHTabBarController {
+  umbrella header "HHTabBarController-umbrella.h"
+
+  export *
+  module * { export * }
+}
