@@ -1,9 +1,9 @@
 {
   "name": "HHTabBarController",
   "version": "0.1.0",
-  "summary": "A short description of HHTabBarController.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/805988356@qq.com/HHTabBarController",
+  "summary": "HHTabBarController的summary",
+  "description": "HHTabBarController的description，比summary长一点",
+  "homepage": "https://github.com/huicuihui/HHTabBarController",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "805988356@qq.com": "805988356@qq.com"
   },
   "source": {
-    "git": "https://github.com/805988356@qq.com/HHTabBarController.git",
+    "git": "https://github.com/huicuihui/HHTabBarController.git",
     "tag": "0.1.0"
   },
   "platforms": {
