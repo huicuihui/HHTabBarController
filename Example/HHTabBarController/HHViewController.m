@@ -9,7 +9,7 @@
 #import "HHViewController.h"
 #import "HHTabBar.h"
 #import "HHTabContentView.h"
-
+#import "HHTabViewController.h"
 @interface HHViewController ()<HHTabBarDelegate,UITableViewDelegate,UITableViewDataSource>
 
 
@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+    self.navigationController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"VC" style:UIBarButtonItemStyleDone target:self action:@selector(rightAction)];
     NSArray *array = @[@"带回家",@"反倒是",@"北方的",@"发的",@"更好",@"反倒是",@"北方的",@"发的",@"更好",@"反倒是",@"北方的",@"发的",@"更好"];
     HHTabBar *tabBar = [[HHTabBar alloc]initWithFrame:CGRectMake(20, 100, 300, 40)];
     tabBar.backgroundColor = [UIColor lightGrayColor];
@@ -77,13 +77,21 @@
 {
     return 20;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self rightAction];
+}
 
 - (BOOL)hh_tabBar:(HHTabBar *)tabBar shouldSelectItemAtIndex:(NSUInteger)index {
     return YES;
 }
 - (void)hh_tabBar:(HHTabBar *)tabBar didSelectedItemAtIndex:(NSUInteger)index {
     NSLog(@"\n选中下标：%ld",index);
+}
+
+- (void)rightAction
+{
+    [self.navigationController pushViewController:[HHTabViewController new] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

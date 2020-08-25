@@ -9,5 +9,5 @@
 #import "UIViewController+HHTab.h"
 
 @implementation UIViewController (HHTab)
-
+- (void)hh_tabItemDidDeselected{}
 @end

@@ -10,10 +10,12 @@
 #endif
 #endif
 
-#import "HHTabBar.h"
-#import "HHTabItem.h"
 #import "UIView+ViewController.h"
 #import "UIViewController+HHTab.h"
+#import "HHTabBar.h"
+#import "HHTabItem.h"
+#import "HHTabBarController.h"
+#import "HHTabBarControllerProtocol.h"
 #import "HHTabContentScrollView.h"
 #import "HHTabContentView.h"
 
