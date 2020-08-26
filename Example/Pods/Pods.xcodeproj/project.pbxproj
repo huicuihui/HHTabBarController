@@ -7,30 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0329442F2D6F05DB414BD28AC4438993 /* HHTabBarController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B140737E6F2F5AFC5F394224D11EF84E /* HHTabBarController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22787462CF66FC6667EF1753BA6B3182 /* HHTabBar.h in Headers */ = {isa = PBXBuildFile; fileRef = D967990574236178F38B8D4661E0368F /* HHTabBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2470DAB0B12F632F74DE765204E12377 /* UIViewController+HHTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 8614CFE4C130ACDDEFEFAA11ADBA292A /* UIViewController+HHTab.m */; };
-		3FC16A77BA4F4153C48A5437D375D13E /* HHTabContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = B092627DC616BA4853940B3378F3DC27 /* HHTabContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4ECC4127CB737EEBA561481FF67AAE6E /* HHTabContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F19D03105F62C9B2F7A945159C50F3A8 /* HHTabContentView.m */; };
-		53ED1A598B3A8E592F94F8236D1EA030 /* HHTabBarController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCE27707D199E863DBC462F4977C95E /* HHTabBarController-dummy.m */; };
+		1416BBB201F2F3D3349A5F0E7D6AD38A /* HHTabContentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA1AA777BB0B88864D55518E44D41DC /* HHTabContentScrollView.m */; };
+		28E9795D834E40AF977DC2373289E56A /* HHTabBar+Item.h in Headers */ = {isa = PBXBuildFile; fileRef = 6727622EAA2943DFF16204FA8779061D /* HHTabBar+Item.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2B949CF7D4163C60FA043E692D66E647 /* HHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60448DABA1476B8D7C7E1043A89E806A /* HHTabBarController.m */; };
+		2E3992CCF8CC0B256117E8046959C7E1 /* HHTabContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9042B18369DD6C5DCFCAC27C081F375A /* HHTabContentView.m */; };
+		356036D23A4B2AF76EB329774C66E714 /* HHTabBar+IndicatorExt.h in Headers */ = {isa = PBXBuildFile; fileRef = 068D7DA21946AB52BE663689F78ACA04 /* HHTabBar+IndicatorExt.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3CFF2375C12832627717541555CAFE4B /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894B46B549C59BC92BDD9DD3DFBA6C78 /* UIView+ViewController.m */; };
+		40B9DFA4AD795C4DFDFB9013126754BE /* HHTabBarController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 645A6065F9E670C112C71D2A0DBEBD3E /* HHTabBarController-dummy.m */; };
 		5EE664CE989D34BBC96069DC8E1CE403 /* Pods-HHTabBarController_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C08BE7570B3E321E57149BD1A21B344 /* Pods-HHTabBarController_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8510F79BB4579D04403513D060111376 /* HHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5213ED438B8694BAFD1824F07276B0CD /* HHTabBar.m */; };
-		8690596795545D7F63CCB2230AE00BBA /* HHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E01FE687B3697F8A3E1683C8D11BC837 /* HHTabBarController.m */; };
-		9943E6E67BBB2AC5D91BA977B0326F7E /* HHTabBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = C0F296561AFBC04459C552924B17E0F9 /* HHTabBarController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9EB034AB305F72A91A237381500103B7 /* HHTabContentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D9ECBEE174D501DD94B95179B0E8 /* HHTabContentScrollView.m */; };
+		638B84910CD5A9EC1099939F225D64BC /* HHTabBarControllerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 279AF7EF93456F734E45156DF0B4EEF4 /* HHTabBarControllerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8FC4074B54C0A500C9C9796E57214D0A /* HHTabBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0051F659B2E41BFC2C3D8585F48EE6 /* HHTabBarController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		97151B8E4D68125B5EC5439E8AD92690 /* HHTabContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 38BBEDD7B1145CD63C2B551EE537C88E /* HHTabContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A42196D94F93C341AE3764B3ADB00E34 /* Pods-HHTabBarController_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0029BA54AC457CCFBC2275F698FCC8EE /* Pods-HHTabBarController_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A589ED2582759488984341DD830D641F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		AF9B9D529E4CB2356F1EFD5E551937C6 /* HHTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B299C6B9B83F5651AAA9AD4C813253 /* HHTabItem.m */; };
-		AF9DEFD8934F84E6AD8CED32AE98DCEB /* HHTabBarControllerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A19E48F805E69211DB4BE214EDA1016 /* HHTabBarControllerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CA07D5647DE64E21D2ABE99D912E693E /* HHTabItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D30523879CB7307563ACA3099F52739 /* HHTabItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A436C009A63254C6EEED3DC6955BBE7E /* UIView+ViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9940C403372A5639C44AC4E22CC1E51E /* UIView+ViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A962205F2A1D938DB35217E6708976A5 /* UIViewController+HHTab.m in Sources */ = {isa = PBXBuildFile; fileRef = D474893ADE1979EAF4010732D23F9F3A /* UIViewController+HHTab.m */; };
+		AC2CFBFBCEBD115C9E0C59CD4D06BAF5 /* HHTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A30BD5C2CEC63EDE1332FD96646D24E9 /* HHTabItem.m */; };
+		B1A43E2005B14DE79086791773EFD170 /* HHTabBarController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BD54205AA33300F8BB381349F94F45E4 /* HHTabBarController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B5B70A9A18DCD55EC46A0C754D9353DF /* HHTabBarHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = D7107FB465009DDB83E5C5ECE96340A0 /* HHTabBarHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B62BA0EDE71C0CDA8C3702ECF6B1BBF4 /* HHTabBar+Indicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 024552DE33B031B8CEB362484FC66F0C /* HHTabBar+Indicator.m */; };
+		BA57952AAACA6B38D3B0B2215727D2AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		CA36698211088808A927372987736456 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		CE63AB4933DD8C88E64CB621619F406B /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E40484FFCBD26E1AC4087E9D4F951452 /* UIView+ViewController.m */; };
+		CCDC3A0D4A8A5A8E6804A44B432ACCCB /* HHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 115877A61BF18528734462AAE141DD54 /* HHTabBar.m */; };
 		D0B79DF6934EE5951867D5DD33DE1EE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		E4C811E1B265D34BEB45C1F9A4A1D8D8 /* UIViewController+HHTab.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C152688B9B7991AF60D35003619266B /* UIViewController+HHTab.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DEF0BAB46E65A056C562A720A310F3E7 /* HHTabContentScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0544BD72D5CA48F950B9892685B10E1B /* HHTabContentScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DFB852BDEB344D032DC30631D3C9C6B9 /* HHTabBar.h in Headers */ = {isa = PBXBuildFile; fileRef = A8A05AF8440E4A3714DFA464F6A647C8 /* HHTabBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E88FE33B8A5AA8EF5BC234B0C65A5E49 /* UIViewController+HHTab.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A61B4E3E751A6BCFD8DC29FE8AA40F0 /* UIViewController+HHTab.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA9926BB848DCC7D578606530CCF98CF /* HHTabBar+Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 358EEB73FDBD62B0B88E669238C3F052 /* HHTabBar+Item.m */; };
 		ECD17CA27A2DB3A9707E7BF4398CD352 /* Pods-HHTabBarController_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A89A369C0255BFFE8A4B728E01293F /* Pods-HHTabBarController_Tests-dummy.m */; };
-		F271318B0C4F8A6245497C717FB3B555 /* UIView+ViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 29599459781F73CCC0737F35BAC9483F /* UIView+ViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED82BC23E00608CD7A8949124913DA92 /* HHTabBar+Indicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 462B8E45258631BDB6A109A4B9B0624D /* HHTabBar+Indicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F34FB99F20DACEAD1DAF2DA5A6D0F261 /* Pods-HHTabBarController_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F7D5D592A329B88E99189B189EBBB /* Pods-HHTabBarController_Example-dummy.m */; };
-		F6A0CF3EDBB33109D3A9FBD247103B3C /* HHTabContentScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AC490AC1D94CBBFAE5AED930567B2C1 /* HHTabContentScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB126864A944F9F648501A14DC7CBC10 /* HHTabItem.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DA833EEFB85DDD66F2DA2EFF719D4B /* HHTabItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,51 +58,57 @@
 
 /* Begin PBXFileReference section */
 		0029BA54AC457CCFBC2275F698FCC8EE /* Pods-HHTabBarController_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HHTabBarController_Tests-umbrella.h"; sourceTree = "<group>"; };
+		024552DE33B031B8CEB362484FC66F0C /* HHTabBar+Indicator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HHTabBar+Indicator.m"; sourceTree = "<group>"; };
+		0544BD72D5CA48F950B9892685B10E1B /* HHTabContentScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HHTabContentScrollView.h; sourceTree = "<group>"; };
 		0580F54A99BE4DBBAA2D52F7969A9989 /* Pods-HHTabBarController_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HHTabBarController_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		07D8269C2EE7C83AF6AB47822640F50C /* HHTabBarController.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = HHTabBarController.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		068D7DA21946AB52BE663689F78ACA04 /* HHTabBar+IndicatorExt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HHTabBar+IndicatorExt.h"; sourceTree = "<group>"; };
 		0E33A7FE1A9912D09005487FE96F07B8 /* Pods-HHTabBarController_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HHTabBarController_Tests.modulemap"; sourceTree = "<group>"; };
+		115877A61BF18528734462AAE141DD54 /* HHTabBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HHTabBar.m; sourceTree = "<group>"; };
 		133F7D5D592A329B88E99189B189EBBB /* Pods-HHTabBarController_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HHTabBarController_Example-dummy.m"; sourceTree = "<group>"; };
-		29599459781F73CCC0737F35BAC9483F /* UIView+ViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
-		2A89D9ECBEE174D501DD94B95179B0E8 /* HHTabContentScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HHTabContentScrollView.m; sourceTree = "<group>"; };
-		2AC490AC1D94CBBFAE5AED930567B2C1 /* HHTabContentScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HHTabContentScrollView.h; sourceTree = "<group>"; };
+		279AF7EF93456F734E45156DF0B4EEF4 /* HHTabBarControllerProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HHTabBarControllerProtocol.h; sourceTree = "<group>"; };
 		2BCF0CF4F9F0211F0ACEEF57F6C625B5 /* Pods-HHTabBarController_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HHTabBarController_Example-Info.plist"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		347D3D7FB0F74DDAB5DAF40CF82FD76A /* Pods-HHTabBarController_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HHTabBarController_Example.modulemap"; sourceTree = "<group>"; };
+		358EEB73FDBD62B0B88E669238C3F052 /* HHTabBar+Item.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HHTabBar+Item.m"; sourceTree = "<group>"; };
+		38BBEDD7B1145CD63C2B551EE537C88E /* HHTabContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HHTabContentView.h; sourceTree = "<group>"; };
 		3F5A7D65C31BF2DC446D9280F5DB24DD /* Pods-HHTabBarController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HHTabBarController_Example.release.xcconfig"; sourceTree = "<group>"; };
-		445E76876CFD923676C21372D7BEBBA0 /* HHTabBarController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HHTabBarController.modulemap; sourceTree = "<group>"; };
-		5213ED438B8694BAFD1824F07276B0CD /* HHTabBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HHTabBar.m; sourceTree = "<group>"; };
-		6525F9A993C003FA6B8B4E9748B1A1F3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		6BB0DE373E884077559C5366F7A44FF1 /* HHTabBarController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HHTabBarController.xcconfig; sourceTree = "<group>"; };
-		6D30523879CB7307563ACA3099F52739 /* HHTabItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HHTabItem.h; sourceTree = "<group>"; };
+		462B8E45258631BDB6A109A4B9B0624D /* HHTabBar+Indicator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HHTabBar+Indicator.h"; sourceTree = "<group>"; };
+		5F0051F659B2E41BFC2C3D8585F48EE6 /* HHTabBarController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HHTabBarController.h; sourceTree = "<group>"; };
+		60448DABA1476B8D7C7E1043A89E806A /* HHTabBarController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HHTabBarController.m; sourceTree = "<group>"; };
+		645A6065F9E670C112C71D2A0DBEBD3E /* HHTabBarController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HHTabBarController-dummy.m"; sourceTree = "<group>"; };
+		6727622EAA2943DFF16204FA8779061D /* HHTabBar+Item.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HHTabBar+Item.h"; sourceTree = "<group>"; };
+		6C68BD77830A4F45B36E196BF99534EB /* HHTabBarController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HHTabBarController-prefix.pch"; sourceTree = "<group>"; };
 		78A616AAF8F999A6D004ABEF093009FC /* Pods-HHTabBarController_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HHTabBarController_Tests-Info.plist"; sourceTree = "<group>"; };
 		7967AFDA2EA88D2C3E2F6B4421A45094 /* Pods-HHTabBarController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HHTabBarController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		7C08BE7570B3E321E57149BD1A21B344 /* Pods-HHTabBarController_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HHTabBarController_Example-umbrella.h"; sourceTree = "<group>"; };
-		8614CFE4C130ACDDEFEFAA11ADBA292A /* UIViewController+HHTab.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HHTab.m"; sourceTree = "<group>"; };
-		8C152688B9B7991AF60D35003619266B /* UIViewController+HHTab.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HHTab.h"; sourceTree = "<group>"; };
+		8816768C74A35339C1837E6AAD823473 /* HHTabBarController.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = HHTabBarController.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		894B46B549C59BC92BDD9DD3DFBA6C78 /* UIView+ViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
+		9042B18369DD6C5DCFCAC27C081F375A /* HHTabContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HHTabContentView.m; sourceTree = "<group>"; };
+		9097A6F6FF41CEE3271A1252F1D5E7A2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		92CC043DD71FC0C9776B8F84E4754469 /* Pods-HHTabBarController_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HHTabBarController_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		93F711BFB63FD07284FAFD24EFF9DA22 /* Pods-HHTabBarController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HHTabBarController_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		9A19E48F805E69211DB4BE214EDA1016 /* HHTabBarControllerProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HHTabBarControllerProtocol.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A0E78992EAEF0228894AA4D8079821DB /* HHTabBarController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HHTabBarController-prefix.pch"; sourceTree = "<group>"; };
-		B092627DC616BA4853940B3378F3DC27 /* HHTabContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HHTabContentView.h; sourceTree = "<group>"; };
-		B140737E6F2F5AFC5F394224D11EF84E /* HHTabBarController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HHTabBarController-umbrella.h"; sourceTree = "<group>"; };
+		9940C403372A5639C44AC4E22CC1E51E /* UIView+ViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
+		9944192D75BFB2000762071AC00675F2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		9A61B4E3E751A6BCFD8DC29FE8AA40F0 /* UIViewController+HHTab.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HHTab.h"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A25D26FD32CE39F3EB015C09E859D789 /* HHTabBarController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HHTabBarController.xcconfig; sourceTree = "<group>"; };
+		A30BD5C2CEC63EDE1332FD96646D24E9 /* HHTabItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HHTabItem.m; sourceTree = "<group>"; };
+		A8A05AF8440E4A3714DFA464F6A647C8 /* HHTabBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HHTabBar.h; sourceTree = "<group>"; };
 		B5FBD3891278DE9FC923083895BF5172 /* Pods-HHTabBarController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HHTabBarController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		BDD1F763D5F0C7B2A4979DFE0AA0ABD9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		C0F296561AFBC04459C552924B17E0F9 /* HHTabBarController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HHTabBarController.h; sourceTree = "<group>"; };
+		BD54205AA33300F8BB381349F94F45E4 /* HHTabBarController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HHTabBarController-umbrella.h"; sourceTree = "<group>"; };
 		C1A89A369C0255BFFE8A4B728E01293F /* Pods-HHTabBarController_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HHTabBarController_Tests-dummy.m"; sourceTree = "<group>"; };
 		CED63946A8B1DB008CF05B89D6345DBE /* Pods-HHTabBarController_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HHTabBarController_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D3C76400BD047AE4B8AF60A030DEA721 /* Pods-HHTabBarController_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HHTabBarController_Example-frameworks.sh"; sourceTree = "<group>"; };
-		D967990574236178F38B8D4661E0368F /* HHTabBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HHTabBar.h; sourceTree = "<group>"; };
-		E01FE687B3697F8A3E1683C8D11BC837 /* HHTabBarController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HHTabBarController.m; sourceTree = "<group>"; };
-		E21E80C5CF4822BB33735835373E88BD /* Pods_HHTabBarController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HHTabBarController_Tests.framework; path = "Pods-HHTabBarController_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E40484FFCBD26E1AC4087E9D4F951452 /* UIView+ViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
-		EBCE27707D199E863DBC462F4977C95E /* HHTabBarController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HHTabBarController-dummy.m"; sourceTree = "<group>"; };
-		F19D03105F62C9B2F7A945159C50F3A8 /* HHTabContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HHTabContentView.m; sourceTree = "<group>"; };
-		F26C4063E6DF324A60A478AA7A014E27 /* HHTabBarController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HHTabBarController.framework; path = HHTabBarController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3B299C6B9B83F5651AAA9AD4C813253 /* HHTabItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HHTabItem.m; sourceTree = "<group>"; };
+		D474893ADE1979EAF4010732D23F9F3A /* UIViewController+HHTab.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HHTab.m"; sourceTree = "<group>"; };
+		D7107FB465009DDB83E5C5ECE96340A0 /* HHTabBarHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HHTabBarHeader.h; path = HHTabBarController/Classes/HHTabBarController/HHTabBarHeader.h; sourceTree = "<group>"; };
+		DDA1AA777BB0B88864D55518E44D41DC /* HHTabContentScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HHTabContentScrollView.m; sourceTree = "<group>"; };
+		E21E80C5CF4822BB33735835373E88BD /* Pods_HHTabBarController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HHTabBarController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5DA833EEFB85DDD66F2DA2EFF719D4B /* HHTabItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HHTabItem.h; sourceTree = "<group>"; };
+		F26C4063E6DF324A60A478AA7A014E27 /* HHTabBarController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HHTabBarController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5FCE329C5BDD37AE6FFAA20BA865108 /* Pods-HHTabBarController_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HHTabBarController_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		FA93CD8D458E3B45A39B9C0D417AF12E /* Pods_HHTabBarController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HHTabBarController_Example.framework; path = "Pods-HHTabBarController_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF4E1630D2842CDB32095A814DC97D0B /* HHTabBarController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HHTabBarController-Info.plist"; sourceTree = "<group>"; };
+		F62E8D650B4FAC6DC2BC3CACAE023E29 /* HHTabBarController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HHTabBarController.modulemap; sourceTree = "<group>"; };
+		F82FD76FAED6F16DF0B652AA6E4703BA /* HHTabBarController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HHTabBarController-Info.plist"; sourceTree = "<group>"; };
+		FA93CD8D458E3B45A39B9C0D417AF12E /* Pods_HHTabBarController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HHTabBarController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,11 +120,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		80FD32FB84E9406043BA664F5515833F /* Frameworks */ = {
+		7F604B2347E25A296EB142B6E2A0E3C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A589ED2582759488984341DD830D641F /* Foundation.framework in Frameworks */,
+				BA57952AAACA6B38D3B0B2215727D2AD /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,52 +139,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1CDE1F17A776EE40FF8241D0182A851E /* HHTabBarController */ = {
+		0E264E20BF4F984760F794E4B4DE0A27 /* HHTabBarController */ = {
 			isa = PBXGroup;
 			children = (
-				3B4DFA3A71D0DF9051FD0F67EAFD34F5 /* Category */,
-				6450D9EDB6A4739C6BBAC1C4106E8C45 /* HHTabBar */,
-				5219C3B6C02AAF4F4BBEC096833DD3AD /* HHTabBarController */,
-				62679ACAC7FAC032ECF6ECAE1E9CD549 /* HHTabContentView */,
-				80F0D4FAC43364E28226B477FC254ED6 /* Pod */,
-				3AAFAE4F15B39408DA8A374AEAFD336D /* Support Files */,
+				D7107FB465009DDB83E5C5ECE96340A0 /* HHTabBarHeader.h */,
+				634EDDE96069DE4D3035DFC0D27ABFA6 /* Category */,
+				A78E021137A67F78C878639FD0107286 /* HHTabBar */,
+				39050989AC2DF32DDD7C29BD71B87B5B /* HHTabBarController */,
+				FB3FDD5EE6A266301FDD0689A6DB2E13 /* HHTabContentView */,
+				26F39E8AAAC98A0E84E341A41A115E9D /* Pod */,
+				169AE6986E4E315607DC58DD77F67763 /* Support Files */,
 			);
 			name = HHTabBarController;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		31CF0088617CD3E937FF67D219BD1604 /* Development Pods */ = {
+		169AE6986E4E315607DC58DD77F67763 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				1CDE1F17A776EE40FF8241D0182A851E /* HHTabBarController */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		3AAFAE4F15B39408DA8A374AEAFD336D /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				445E76876CFD923676C21372D7BEBBA0 /* HHTabBarController.modulemap */,
-				6BB0DE373E884077559C5366F7A44FF1 /* HHTabBarController.xcconfig */,
-				EBCE27707D199E863DBC462F4977C95E /* HHTabBarController-dummy.m */,
-				FF4E1630D2842CDB32095A814DC97D0B /* HHTabBarController-Info.plist */,
-				A0E78992EAEF0228894AA4D8079821DB /* HHTabBarController-prefix.pch */,
-				B140737E6F2F5AFC5F394224D11EF84E /* HHTabBarController-umbrella.h */,
+				F62E8D650B4FAC6DC2BC3CACAE023E29 /* HHTabBarController.modulemap */,
+				A25D26FD32CE39F3EB015C09E859D789 /* HHTabBarController.xcconfig */,
+				645A6065F9E670C112C71D2A0DBEBD3E /* HHTabBarController-dummy.m */,
+				F82FD76FAED6F16DF0B652AA6E4703BA /* HHTabBarController-Info.plist */,
+				6C68BD77830A4F45B36E196BF99534EB /* HHTabBarController-prefix.pch */,
+				BD54205AA33300F8BB381349F94F45E4 /* HHTabBarController-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/HHTabBarController";
 			sourceTree = "<group>";
 		};
-		3B4DFA3A71D0DF9051FD0F67EAFD34F5 /* Category */ = {
+		229BD82BBF56C83452D92773CD1D5461 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				29599459781F73CCC0737F35BAC9483F /* UIView+ViewController.h */,
-				E40484FFCBD26E1AC4087E9D4F951452 /* UIView+ViewController.m */,
-				8C152688B9B7991AF60D35003619266B /* UIViewController+HHTab.h */,
-				8614CFE4C130ACDDEFEFAA11ADBA292A /* UIViewController+HHTab.m */,
+				0E264E20BF4F984760F794E4B4DE0A27 /* HHTabBarController */,
 			);
-			name = Category;
-			path = HHTabBarController/Classes/HHTabBarController/Category;
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		26F39E8AAAC98A0E84E341A41A115E9D /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				8816768C74A35339C1837E6AAD823473 /* HHTabBarController.podspec */,
+				9944192D75BFB2000762071AC00675F2 /* LICENSE */,
+				9097A6F6FF41CEE3271A1252F1D5E7A2 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		39050989AC2DF32DDD7C29BD71B87B5B /* HHTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				5F0051F659B2E41BFC2C3D8585F48EE6 /* HHTabBarController.h */,
+				60448DABA1476B8D7C7E1043A89E806A /* HHTabBarController.m */,
+				279AF7EF93456F734E45156DF0B4EEF4 /* HHTabBarControllerProtocol.h */,
+			);
+			name = HHTabBarController;
+			path = HHTabBarController/Classes/HHTabBarController/HHTabBarController;
 			sourceTree = "<group>";
 		};
 		4E1DE769AAA7499C8889A41E1FC61556 /* Pods-HHTabBarController_Tests */ = {
@@ -191,17 +213,6 @@
 			path = "Target Support Files/Pods-HHTabBarController_Tests";
 			sourceTree = "<group>";
 		};
-		5219C3B6C02AAF4F4BBEC096833DD3AD /* HHTabBarController */ = {
-			isa = PBXGroup;
-			children = (
-				C0F296561AFBC04459C552924B17E0F9 /* HHTabBarController.h */,
-				E01FE687B3697F8A3E1683C8D11BC837 /* HHTabBarController.m */,
-				9A19E48F805E69211DB4BE214EDA1016 /* HHTabBarControllerProtocol.h */,
-			);
-			name = HHTabBarController;
-			path = HHTabBarController/Classes/HHTabBarController/HHTabBarController;
-			sourceTree = "<group>";
-		};
 		60C71C30D70FADF65C70799938B726E6 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,28 +222,16 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		62679ACAC7FAC032ECF6ECAE1E9CD549 /* HHTabContentView */ = {
+		634EDDE96069DE4D3035DFC0D27ABFA6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				2AC490AC1D94CBBFAE5AED930567B2C1 /* HHTabContentScrollView.h */,
-				2A89D9ECBEE174D501DD94B95179B0E8 /* HHTabContentScrollView.m */,
-				B092627DC616BA4853940B3378F3DC27 /* HHTabContentView.h */,
-				F19D03105F62C9B2F7A945159C50F3A8 /* HHTabContentView.m */,
+				9940C403372A5639C44AC4E22CC1E51E /* UIView+ViewController.h */,
+				894B46B549C59BC92BDD9DD3DFBA6C78 /* UIView+ViewController.m */,
+				9A61B4E3E751A6BCFD8DC29FE8AA40F0 /* UIViewController+HHTab.h */,
+				D474893ADE1979EAF4010732D23F9F3A /* UIViewController+HHTab.m */,
 			);
-			name = HHTabContentView;
-			path = HHTabBarController/Classes/HHTabBarController/HHTabContentView;
-			sourceTree = "<group>";
-		};
-		6450D9EDB6A4739C6BBAC1C4106E8C45 /* HHTabBar */ = {
-			isa = PBXGroup;
-			children = (
-				D967990574236178F38B8D4661E0368F /* HHTabBar.h */,
-				5213ED438B8694BAFD1824F07276B0CD /* HHTabBar.m */,
-				6D30523879CB7307563ACA3099F52739 /* HHTabItem.h */,
-				F3B299C6B9B83F5651AAA9AD4C813253 /* HHTabItem.m */,
-			);
-			name = HHTabBar;
-			path = HHTabBarController/Classes/HHTabBarController/HHTabBar;
+			name = Category;
+			path = HHTabBarController/Classes/HHTabBarController/Category;
 			sourceTree = "<group>";
 		};
 		7F57DFA92CB380028D488A4001F253A8 /* Products */ = {
@@ -243,16 +242,6 @@
 				E21E80C5CF4822BB33735835373E88BD /* Pods_HHTabBarController_Tests.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		80F0D4FAC43364E28226B477FC254ED6 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				07D8269C2EE7C83AF6AB47822640F50C /* HHTabBarController.podspec */,
-				BDD1F763D5F0C7B2A4979DFE0AA0ABD9 /* LICENSE */,
-				6525F9A993C003FA6B8B4E9748B1A1F3 /* README.md */,
-			);
-			name = Pod;
 			sourceTree = "<group>";
 		};
 		8F0F52BD195E017BE574811F75CDE7DB /* Pods-HHTabBarController_Example */ = {
@@ -272,6 +261,23 @@
 			path = "Target Support Files/Pods-HHTabBarController_Example";
 			sourceTree = "<group>";
 		};
+		A78E021137A67F78C878639FD0107286 /* HHTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A8A05AF8440E4A3714DFA464F6A647C8 /* HHTabBar.h */,
+				115877A61BF18528734462AAE141DD54 /* HHTabBar.m */,
+				462B8E45258631BDB6A109A4B9B0624D /* HHTabBar+Indicator.h */,
+				024552DE33B031B8CEB362484FC66F0C /* HHTabBar+Indicator.m */,
+				068D7DA21946AB52BE663689F78ACA04 /* HHTabBar+IndicatorExt.h */,
+				6727622EAA2943DFF16204FA8779061D /* HHTabBar+Item.h */,
+				358EEB73FDBD62B0B88E669238C3F052 /* HHTabBar+Item.m */,
+				E5DA833EEFB85DDD66F2DA2EFF719D4B /* HHTabItem.h */,
+				A30BD5C2CEC63EDE1332FD96646D24E9 /* HHTabItem.m */,
+			);
+			name = HHTabBar;
+			path = HHTabBarController/Classes/HHTabBarController/HHTabBar;
+			sourceTree = "<group>";
+		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,7 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				31CF0088617CD3E937FF67D219BD1604 /* Development Pods */,
+				229BD82BBF56C83452D92773CD1D5461 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				7F57DFA92CB380028D488A4001F253A8 /* Products */,
 				60C71C30D70FADF65C70799938B726E6 /* Targets Support Files */,
@@ -299,6 +305,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FB3FDD5EE6A266301FDD0689A6DB2E13 /* HHTabContentView */ = {
+			isa = PBXGroup;
+			children = (
+				0544BD72D5CA48F950B9892685B10E1B /* HHTabContentScrollView.h */,
+				DDA1AA777BB0B88864D55518E44D41DC /* HHTabContentScrollView.m */,
+				38BBEDD7B1145CD63C2B551EE537C88E /* HHTabContentView.h */,
+				9042B18369DD6C5DCFCAC27C081F375A /* HHTabContentView.m */,
+			);
+			name = HHTabContentView;
+			path = HHTabBarController/Classes/HHTabBarController/HHTabContentView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -310,27 +328,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		29B27FC06EDEC6215C263AE64D7E0AAF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED82BC23E00608CD7A8949124913DA92 /* HHTabBar+Indicator.h in Headers */,
+				356036D23A4B2AF76EB329774C66E714 /* HHTabBar+IndicatorExt.h in Headers */,
+				28E9795D834E40AF977DC2373289E56A /* HHTabBar+Item.h in Headers */,
+				DFB852BDEB344D032DC30631D3C9C6B9 /* HHTabBar.h in Headers */,
+				B1A43E2005B14DE79086791773EFD170 /* HHTabBarController-umbrella.h in Headers */,
+				8FC4074B54C0A500C9C9796E57214D0A /* HHTabBarController.h in Headers */,
+				638B84910CD5A9EC1099939F225D64BC /* HHTabBarControllerProtocol.h in Headers */,
+				B5B70A9A18DCD55EC46A0C754D9353DF /* HHTabBarHeader.h in Headers */,
+				DEF0BAB46E65A056C562A720A310F3E7 /* HHTabContentScrollView.h in Headers */,
+				97151B8E4D68125B5EC5439E8AD92690 /* HHTabContentView.h in Headers */,
+				FB126864A944F9F648501A14DC7CBC10 /* HHTabItem.h in Headers */,
+				A436C009A63254C6EEED3DC6955BBE7E /* UIView+ViewController.h in Headers */,
+				E88FE33B8A5AA8EF5BC234B0C65A5E49 /* UIViewController+HHTab.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5B5D0E08B589A21856CDECDC95D51F6C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A42196D94F93C341AE3764B3ADB00E34 /* Pods-HHTabBarController_Tests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BDED25CA3AB2D95CD326F2572C11215 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				22787462CF66FC6667EF1753BA6B3182 /* HHTabBar.h in Headers */,
-				0329442F2D6F05DB414BD28AC4438993 /* HHTabBarController-umbrella.h in Headers */,
-				9943E6E67BBB2AC5D91BA977B0326F7E /* HHTabBarController.h in Headers */,
-				AF9DEFD8934F84E6AD8CED32AE98DCEB /* HHTabBarControllerProtocol.h in Headers */,
-				F6A0CF3EDBB33109D3A9FBD247103B3C /* HHTabContentScrollView.h in Headers */,
-				3FC16A77BA4F4153C48A5437D375D13E /* HHTabContentView.h in Headers */,
-				CA07D5647DE64E21D2ABE99D912E693E /* HHTabItem.h in Headers */,
-				F271318B0C4F8A6245497C717FB3B555 /* UIView+ViewController.h in Headers */,
-				E4C811E1B265D34BEB45C1F9A4A1D8D8 /* UIViewController+HHTab.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,12 +380,12 @@
 		};
 		3B78BD283AD2C238D8F718BDE2614107 /* HHTabBarController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACF0280119324F6D4CEBB8FAF093273E /* Build configuration list for PBXNativeTarget "HHTabBarController" */;
+			buildConfigurationList = 4DCB44C2D316B3246ED978F616309D6A /* Build configuration list for PBXNativeTarget "HHTabBarController" */;
 			buildPhases = (
-				8BDED25CA3AB2D95CD326F2572C11215 /* Headers */,
-				ACC94E89B27B60F4CF8DF67743AF292F /* Sources */,
-				80FD32FB84E9406043BA664F5515833F /* Frameworks */,
-				E50C20E5DE8244F6E9E90A5A88B301AA /* Resources */,
+				29B27FC06EDEC6215C263AE64D7E0AAF /* Headers */,
+				E624E1C6DF9B49F8A081BD2C1D69E585 /* Sources */,
+				7F604B2347E25A296EB142B6E2A0E3C9 /* Frameworks */,
+				3CAEBDFD01BE0886EA68262AB293EAC1 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -430,14 +452,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		98EFD2045A4828555E6E81D99900D8AB /* Resources */ = {
+		3CAEBDFD01BE0886EA68262AB293EAC1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E50C20E5DE8244F6E9E90A5A88B301AA /* Resources */ = {
+		98EFD2045A4828555E6E81D99900D8AB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -463,18 +485,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ACC94E89B27B60F4CF8DF67743AF292F /* Sources */ = {
+		E624E1C6DF9B49F8A081BD2C1D69E585 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8510F79BB4579D04403513D060111376 /* HHTabBar.m in Sources */,
-				53ED1A598B3A8E592F94F8236D1EA030 /* HHTabBarController-dummy.m in Sources */,
-				8690596795545D7F63CCB2230AE00BBA /* HHTabBarController.m in Sources */,
-				9EB034AB305F72A91A237381500103B7 /* HHTabContentScrollView.m in Sources */,
-				4ECC4127CB737EEBA561481FF67AAE6E /* HHTabContentView.m in Sources */,
-				AF9B9D529E4CB2356F1EFD5E551937C6 /* HHTabItem.m in Sources */,
-				CE63AB4933DD8C88E64CB621619F406B /* UIView+ViewController.m in Sources */,
-				2470DAB0B12F632F74DE765204E12377 /* UIViewController+HHTab.m in Sources */,
+				B62BA0EDE71C0CDA8C3702ECF6B1BBF4 /* HHTabBar+Indicator.m in Sources */,
+				EA9926BB848DCC7D578606530CCF98CF /* HHTabBar+Item.m in Sources */,
+				CCDC3A0D4A8A5A8E6804A44B432ACCCB /* HHTabBar.m in Sources */,
+				40B9DFA4AD795C4DFDFB9013126754BE /* HHTabBarController-dummy.m in Sources */,
+				2B949CF7D4163C60FA043E692D66E647 /* HHTabBarController.m in Sources */,
+				1416BBB201F2F3D3349A5F0E7D6AD38A /* HHTabContentScrollView.m in Sources */,
+				2E3992CCF8CC0B256117E8046959C7E1 /* HHTabContentView.m in Sources */,
+				AC2CFBFBCEBD115C9E0C59CD4D06BAF5 /* HHTabItem.m in Sources */,
+				3CFF2375C12832627717541555CAFE4B /* UIView+ViewController.m in Sources */,
+				A962205F2A1D938DB35217E6708976A5 /* UIViewController+HHTab.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,8 +640,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -656,6 +679,37 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		535D413A7195029C2CE459C63D6813AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A25D26FD32CE39F3EB015C09E859D789 /* HHTabBarController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HHTabBarController/HHTabBarController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HHTabBarController/HHTabBarController-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HHTabBarController/HHTabBarController.modulemap";
+				PRODUCT_MODULE_NAME = HHTabBarController;
+				PRODUCT_NAME = HHTabBarController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		7EF7227D9B20A1D549000096ACCB23D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -721,9 +775,9 @@
 			};
 			name = Debug;
 		};
-		B675D47643ED4F02C5C0D3EAA6FFA66D /* Release */ = {
+		8B026EF90AE407C413CED130A8937E2E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BB0DE373E884077559C5366F7A44FF1 /* HHTabBarController.xcconfig */;
+			baseConfigurationReference = A25D26FD32CE39F3EB015C09E859D789 /* HHTabBarController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -786,37 +840,6 @@
 			};
 			name = Debug;
 		};
-		CB23956661FE4827E01E549D1B3D6990 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BB0DE373E884077559C5366F7A44FF1 /* HHTabBarController.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/HHTabBarController/HHTabBarController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/HHTabBarController/HHTabBarController-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/HHTabBarController/HHTabBarController.modulemap";
-				PRODUCT_MODULE_NAME = HHTabBarController;
-				PRODUCT_NAME = HHTabBarController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -838,11 +861,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACF0280119324F6D4CEBB8FAF093273E /* Build configuration list for PBXNativeTarget "HHTabBarController" */ = {
+		4DCB44C2D316B3246ED978F616309D6A /* Build configuration list for PBXNativeTarget "HHTabBarController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CB23956661FE4827E01E549D1B3D6990 /* Debug */,
-				B675D47643ED4F02C5C0D3EAA6FFA66D /* Release */,
+				535D413A7195029C2CE459C63D6813AE /* Debug */,
+				8B026EF90AE407C413CED130A8937E2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

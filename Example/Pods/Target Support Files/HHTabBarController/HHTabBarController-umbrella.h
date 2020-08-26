@@ -12,10 +12,14 @@
 
 #import "UIView+ViewController.h"
 #import "UIViewController+HHTab.h"
+#import "HHTabBar+Indicator.h"
+#import "HHTabBar+IndicatorExt.h"
+#import "HHTabBar+Item.h"
 #import "HHTabBar.h"
 #import "HHTabItem.h"
 #import "HHTabBarController.h"
 #import "HHTabBarControllerProtocol.h"
+#import "HHTabBarHeader.h"
 #import "HHTabContentScrollView.h"
 #import "HHTabContentView.h"
 

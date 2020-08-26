@@ -49,6 +49,7 @@
     _contentScrollView.hh_delegete = self;
     [self addSubview:_contentScrollView];
     
+    //设置_selectedTabIndex为NSNotFound，否则在tabBar代理方法didSelectedItemAtIndex里，会不显示默认的第一个view。
     _selectedTabIndex = NSNotFound;
     _defaultSelectedTabIndex = 0;
     _isDefaultSelectedTabIndexSetuped = NO;

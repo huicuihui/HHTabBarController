@@ -7,7 +7,7 @@
 //
 
 #import "HHTabViewController.h"
-
+#import <HHTabBarHeader.h>
 @interface HHTabViewController ()
 
 @end

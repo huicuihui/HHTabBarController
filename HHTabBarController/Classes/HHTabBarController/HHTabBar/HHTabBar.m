@@ -7,28 +7,12 @@
 //
 
 #import "HHTabBar.h"
-
-typedef NS_ENUM(NSInteger, HHTabBarIndicatorStyle) {
-    HHTabBarIndicatorStyleFitItem,
-    HHTabBarIndicatorStyleFitTitle,
-    HHTabBarIndicatorStyleFixedWidth,
-};
-
+#import "HHTabBar+Indicator.h"
+#import "HHTabBar+Item.h"
 @interface HHTabBar()
 
 /// TabBar支持滚动时，需要使用此scrollView
 @property (nonatomic, strong)UIScrollView *scrollView;
-
-/// 选中背景
-@property (nonatomic, strong)UIImageView *indicatorImageView;
-@property (nonatomic, assign)UIEdgeInsets indicatorInsets;
-@property (nonatomic, assign)HHTabBarIndicatorStyle indicatorStyle;
-@property (nonatomic, assign)CGFloat indicatorWidthFixTitleAdditional;
-@property (nonatomic, assign)CGFloat indicatorWidth;
-
-
-/// item是否匹配title的文字宽度
-@property (nonatomic, assign)BOOL itemFitTextWidth;
 
 /// 当item匹配title的文字宽度时，左右留出空隙，item的宽度 = 文字宽度 + spacing
 @property (nonatomic, assign)CGFloat itemFitTextWidthSpacing;
@@ -56,9 +40,9 @@ typedef NS_ENUM(NSInteger, HHTabBarIndicatorStyle) {
     self.clipsToBounds = YES;
     
     _selectedItemIndex = NSNotFound;
-    _itemTitleColor = [UIColor whiteColor];
-    _itemTitleSelectedColor = [UIColor blackColor];
-    _itemTitleFont = [UIFont systemFontOfSize:10];
+    self.itemTitleColor = [UIColor whiteColor];
+    self.itemTitleSelectedColor = [UIColor blackColor];
+    self.itemTitleFont = [UIFont systemFontOfSize:10];
     
     _scrollView = [[UIScrollView alloc]initWithFrame:self.bounds];
     _scrollView.showsHorizontalScrollIndicator = NO;
@@ -129,6 +113,8 @@ typedef NS_ENUM(NSInteger, HHTabBarIndicatorStyle) {
 - (void)updateAllUI
 {
     [self updateItemsFrame];
+    //更新items的indicatorInsets
+    [self updateItemIndicatorInsets];
     [self updateIndicatorFrameWithIndex:self.selectedItemIndex];
 }
 - (void)updateItemsFrame
@@ -176,17 +162,6 @@ typedef NS_ENUM(NSInteger, HHTabBarIndicatorStyle) {
     }
 }
 
-/// 更新选中背景的frame
-/// @param index <#index description#>
-- (void)updateIndicatorFrameWithIndex:(NSUInteger)index
-{
-    if (self.items.count == 0 || index == NSNotFound) {
-        self.indicatorImageView.frame = CGRectZero;
-        return;
-    }
-    HHTabItem *item = self.items[index];
-    self.indicatorImageView.frame = item.indicatorFrame;
-}
 - (void)setSelectedItemIndex:(NSUInteger)selectedItemIndex
 {
     [self setSelectedItemIndex:selectedItemIndex animated:self.indicatorSwitchAnimated callDelegate:YES];
@@ -305,134 +280,11 @@ typedef NS_ENUM(NSInteger, HHTabBarIndicatorStyle) {
     self.selectedItemIndex = item.index;
 }
 
-#pragma mark - indicator
-- (void)setIndicatorColor:(UIColor *)indicatorColor
-{
-    _indicatorColor = indicatorColor;
-    self.indicatorImageView.backgroundColor = indicatorColor;
-}
-- (void)setIndicatorImage:(UIImage *)indicatorImage
-{
-    _indicatorImage = indicatorImage;
-    self.indicatorImageView.image = indicatorImage;
-}
-- (void)setIndicatorCornerRadius:(CGFloat)indicatorCornerRadius
-{
-    _indicatorCornerRadius = indicatorCornerRadius;
-    self.indicatorImageView.clipsToBounds = YES;
-    self.indicatorImageView.layer.cornerRadius = indicatorCornerRadius;
-}
-
-- (void)setIndicatorInsets:(UIEdgeInsets)insets
-         tapSwitchAnimated:(BOOL)animated
-{
-    self.indicatorStyle = HHTabBarIndicatorStyleFitItem;
-    self.indicatorSwitchAnimated = animated;
-    self.indicatorInsets = insets;
-    
-    [self updateItemIndicatorInsets];
-    [self updateIndicatorFrameWithIndex:self.selectedItemIndex];
-}
-
-- (void)setIndicatorWidthFitTextAndMarginTop:(CGFloat)top
-                                marginBottom:(CGFloat)bottom
-                             widthAdditional:(CGFloat)additional
-                           tapSwitchAnimated:(BOOL)animated
-{
-    self.indicatorStyle = HHTabBarIndicatorStyleFitTitle;
-    self.indicatorSwitchAnimated = animated;
-    self.indicatorInsets = UIEdgeInsetsMake(top, 0, bottom, 0);
-    self.indicatorWidthFixTitleAdditional = additional;
-    
-    [self updateItemIndicatorInsets];
-    [self updateIndicatorFrameWithIndex:self.selectedItemIndex];
-}
-
-- (void)setIndicatorWidth:(CGFloat)width
-                marginTop:(CGFloat)top
-             marginBottom:(CGFloat)bottom
-        tapSwitchAnimated:(BOOL)animated
-{
-    self.indicatorStyle = HHTabBarIndicatorStyleFixedWidth;
-    self.indicatorSwitchAnimated = animated;
-    self.indicatorInsets = UIEdgeInsetsMake(top, 0, bottom, 0);
-    self.indicatorWidth = width;
-    
-    [self updateItemIndicatorInsets];
-    [self updateIndicatorFrameWithIndex:self.selectedItemIndex];
-}
-
-- (void)updateItemIndicatorInsets
-{
-    if (self.indicatorStyle == HHTabBarIndicatorStyleFitTitle) {
-        for (HHTabItem *item in self.items) {
-            CGRect frame = item.frameWithOutTransform;
-            CGFloat space = (frame.size.width - item.titleWidth - self.indicatorWidthFixTitleAdditional) / 2;
-            item.indicatorInsets = UIEdgeInsetsMake(self.indicatorInsets.top, space, self.indicatorInsets.bottom, space);
-        }
-    }
-    else if (self.indicatorStyle == HHTabBarIndicatorStyleFixedWidth) {
-        for (HHTabItem *item in self.items) {
-            CGRect frame = item.frameWithOutTransform;
-            CGFloat space = (frame.size.width - self.indicatorWidth) / 2;
-            item.indicatorInsets = UIEdgeInsetsMake(self.indicatorInsets.top, space, self.indicatorInsets.bottom, space);
-        }
-    }
-    else if (self.indicatorStyle == HHTabBarIndicatorStyleFitItem) {
-        for (HHTabItem *item in self.items) {
-            item.indicatorInsets = self.indicatorInsets;
-        }
-    }
-}
-#pragma mark - ItemTitle
-- (void)setItemTitleColor:(UIColor *)itemTitleColor
-{
-    _itemTitleColor = itemTitleColor;
-    [self.items makeObjectsPerformSelector:@selector(setTitleColor:) withObject:itemTitleColor];
-}
-- (void)setItemTitleSelectedColor:(UIColor *)itemTitleSelectedColor
-{
-    _itemTitleSelectedColor = itemTitleSelectedColor;
-    [self.items makeObjectsPerformSelector:@selector(setTitleSelectedColor:) withObject:itemTitleSelectedColor];
-}
-- (void)setItemTitleFont:(UIFont *)itemTitleFont
-{
-    _itemTitleFont = itemTitleFont;
-    if (self.itemFontChangeFollowContentScroll) {
-        // item字体支持平滑切换，更新每个item的scale
-        [self updateItemsScaleIfNeeded];
-    } else {
-        // item字体不支持平滑切换，更新item的字体
-        if (self.itemTitleSelectedFont) {
-            // 设置了选中字体，则只要更新未选中的item
-            for (HHTabItem *item in self.items) {
-                if (!item.selected) {
-                    item.titleFont = itemTitleFont;
-                }
-            }
-        } else {
-            // 未设置选中字体， 更新所有item
-            [self.items makeObjectsPerformSelector:@selector(setTitleFont:) withObject:itemTitleFont];
-        }
-    }
-    if (self.itemFitTextWidth) {
-        // 如果item的宽度是匹配文字的，更新item的位置
-        [self updateItemsFrame];
-    }
-    [self updateIndicatorFrameWithIndex:self.selectedItemIndex];
-}
-- (void)setItemTitleSelectedFont:(UIFont *)itemTitleSelectedFont
-{
-    _itemTitleSelectedFont = itemTitleSelectedFont;
-    self.selectedItem.titleFont = itemTitleSelectedFont;
-    [self updateItemsScaleIfNeeded];
-}
-
 #pragma mark - 获取未选中字体与选中字体大小的比例
 - (CGFloat)itemTitleUnselectedFontScale
 {
-    if (_itemTitleSelectedFont) {
-        return self.itemTitleFont.pointSize / _itemTitleSelectedFont.pointSize;
+    if (self.itemTitleSelectedFont) {
+        return self.itemTitleFont.pointSize / self.itemTitleSelectedFont.pointSize;
     }
     return 1.0f;
 }

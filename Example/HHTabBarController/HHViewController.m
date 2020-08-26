@@ -7,11 +7,9 @@
 //
 
 #import "HHViewController.h"
-#import "HHTabBar.h"
-#import "HHTabContentView.h"
+#import <HHTabBarHeader.h>
 #import "HHTabViewController.h"
 @interface HHViewController ()<HHTabBarDelegate,UITableViewDelegate,UITableViewDataSource>
-
 
 @end
 
