@@ -6,7 +6,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HHTabBar.h"
 #import "HHTabContentView.h"
 #import "HHTabBarControllerProtocol.h"
 

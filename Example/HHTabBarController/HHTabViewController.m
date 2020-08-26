@@ -37,6 +37,7 @@
     [self.tabBar setScrollEnabledAndItemFitTextWidthWithSpacing:30];
     
     [self initViewControllers];
+    [self.tabContentView setSelectedTabIndex:0];
 }
 - (void)initViewControllers
 {
@@ -45,6 +46,7 @@
         UIViewController *vc = [[UIViewController alloc]init];
         vc.view.backgroundColor = [UIColor orangeColor];
         [viewControllers addObject:vc];
+        vc.tabItemTitle = [NSString stringWithFormat:@"fhdjk%d",i];
     }
     self.viewControllers = viewControllers;
 }

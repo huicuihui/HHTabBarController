@@ -9,9 +9,13 @@
 #import "HHTabContentView.h"
 #import "HHTabContentScrollView.h"
 #import "UIView+ViewController.h"
-#import "UIViewController+HHTab.h"
 @interface HHTabContentView()<HHTabBarDelegate,UIScrollViewDelegate,HHTabContentScrollViewDelegate>
+{
+    CGFloat _lastContentScrollViewOffsetX;
+}
 @property (nonatomic, strong)HHTabContentScrollView *contentScrollView;
+
+@property (nonatomic, assign)BOOL isDefaultSelectedTabIndexSetuped;
 
 @property (nonatomic, assign)BOOL contentScrollEnabled;
 @property (nonatomic, assign)BOOL contentSwitchAnimated;
@@ -45,7 +49,9 @@
     _contentScrollView.hh_delegete = self;
     [self addSubview:_contentScrollView];
     
+    _selectedTabIndex = NSNotFound;
     _defaultSelectedTabIndex = 0;
+    _isDefaultSelectedTabIndexSetuped = NO;
 }
 
 - (void)setTabBar:(HHTabBar *)tabBar
@@ -56,9 +62,7 @@
 - (void)setFrame:(CGRect)frame
 {
     [super setFrame:frame];
-    if (CGRectEqualToRect(frame, CGRectZero)) {
-        return;
-    }
+    if (CGRectEqualToRect(frame, CGRectZero)) return;
     if (!self.headerView) {
         self.contentScrollView.frame = self.bounds;
     }
@@ -80,9 +84,7 @@
 {
     for (UIViewController *vc in viewControllers) {
         [vc removeFromParentViewController];
-        if (vc.isViewLoaded) {
-            [vc.view removeFromSuperview];
-        }
+        if (vc.isViewLoaded) [vc.view removeFromSuperview];
     }
     
     _viewControllers = [viewControllers copy];
@@ -95,6 +97,7 @@
         }
         
         HHTabItem *item = [HHTabItem buttonWithType:UIButtonTypeCustom];
+        item.title = vc.tabItemTitle;
         [items addObject:item];
     }
     self.tabBar.items = items;
@@ -103,21 +106,34 @@
     if (self.contentScrollEnabled) {
         self.contentScrollView.contentSize = CGSizeMake(self.contentScrollView.bounds.size.width * _viewControllers.count, self.contentScrollView.bounds.size.height);
     }
+    if (self.isDefaultSelectedTabIndexSetuped) {
+        _selectedTabIndex = NSNotFound;
+        self.tabBar.selectedItemIndex = 0;
+    }
 }
+
+- (void)setContentScrollEnabled:(BOOL)enabled tapSwitchAnimated:(BOOL)animated {
+    if (!self.contentScrollEnabled && enabled) {
+        self.contentScrollEnabled = enabled;
+        [self updateContentViewsFrame];
+    }
+    self.contentScrollView.scrollEnabled = enabled;
+    self.contentSwitchAnimated = animated;
+}
+
 - (void)updateContentViewsFrame
 {
-//    if (self.contentScrollEnabled) {
-//        self.contentScrollView.contentSize = CGSizeMake(self.contentScrollView.bounds.size.width * self.viewControllers.count, self.contentScrollView.bounds
-//                                                        .size.height);
-//        [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            if (obj.isViewLoaded) {
-//                obj.view.frame = [self frameAtIndex:idx];
-//            }
-//        }];
-//        [self.contentScrollView scrollRectToVisible:<#(CGRect)#> animated:<#(BOOL)#>]
-//    } else {
-//        <#statements#>
-//    }
+    if (self.contentScrollEnabled) {
+        self.contentScrollView.contentSize = CGSizeMake(self.contentScrollView.bounds.size.width * self.viewControllers.count, self.contentScrollView.bounds
+                                                        .size.height);
+        [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (obj.isViewLoaded) obj.view.frame = [self frameAtIndex:idx];
+        }];
+        [self.contentScrollView scrollRectToVisible:self.selectedController.view.frame animated:YES];
+    } else {
+        self.contentScrollView.contentSize = self.contentScrollView.bounds.size;
+        self.selectedController.view.frame = self.contentScrollView.bounds;
+    }
 }
 
 - (CGRect)frameAtIndex:(NSUInteger)index
@@ -129,7 +145,11 @@
 {
     self.tabBar.selectedItemIndex = selectedTabIndex;
 }
-
+- (UIViewController *)selectedController
+{
+    if (self.selectedTabIndex != NSNotFound) return self.viewControllers[self.selectedTabIndex];
+    return nil;
+}
 #pragma mark - HHTabBarDelegate
 - (BOOL)hh_tabBar:(HHTabBar *)tabBar shouldSelectItemAtIndex:(NSUInteger)index
 {
@@ -140,9 +160,7 @@
 }
 - (void)hh_tabBar:(HHTabBar *)tabBar didSelectedItemAtIndex:(NSUInteger)index
 {
-    if (index == self.selectedTabIndex) {
-        return;
-    }
+    if (index == self.selectedTabIndex) return;
     UIViewController *oldController = nil;
     if (self.selectedTabIndex != NSNotFound) {
         oldController = self.viewControllers[self.selectedTabIndex];
@@ -163,11 +181,9 @@
     if (self.contentScrollEnabled) {
         // contentView支持滚动
         curController.view.frame = [self frameAtIndex:index];
-
         [self.contentScrollView addSubview:curController.view];
         // 切换到curController
         [self.contentScrollView scrollRectToVisible:curController.view.frame animated:self.contentSwitchAnimated];
-
     } else {
         // contentView不支持滚动
         // 设置curController.view的frame
@@ -242,21 +258,47 @@
     //滑动越界不处理
     CGFloat offsetX = scrollView.contentOffset.x;
     CGFloat scrollViewWidth = scrollView.frame.size.width;
-    if (offsetX < 0) {
-        return;
-    }
-    if (offsetX > scrollView.contentSize.width - scrollViewWidth) {
-        return;
-    }
+    if (offsetX < 0) return;
+    if (offsetX > scrollView.contentSize.width - scrollViewWidth) return;
     
     NSUInteger leftIndex = offsetX / scrollViewWidth;
     NSUInteger rightIndex = leftIndex + 1;
     
-    //处理shouldSelectItemAtIndex方法
+    // 处理shouldSelectItemAtIndex方法
     if (self.delegate && [self.delegate respondsToSelector:@selector(tabContentView:shouldSelectTabAtIndex:)] && !scrollView.isDecelerating) {
         NSUInteger targetIndex;
-        
+        if (_lastContentScrollViewOffsetX < (CGFloat)offsetX) {
+            // 向左
+            targetIndex = rightIndex;
+        } else {
+            // 向右
+            targetIndex = leftIndex;
+        }
+        if (targetIndex != self.selectedTabIndex) {
+            if (![self shouldSelectItemAtIndex:targetIndex]) {
+                [scrollView setContentOffset:CGPointMake(self.selectedTabIndex * scrollViewWidth, 0) animated:NO];
+            }
+        }
     }
+    _lastContentScrollViewOffsetX = offsetX;
+
+    // 刚好处于能完整显示一个child view的位置
+    if (leftIndex == offsetX / scrollViewWidth) {
+        rightIndex = leftIndex;
+    }
+    // 将需要显示的child view放到scrollView上
+    for (NSUInteger index = leftIndex; index <= rightIndex; index++) {
+        UIViewController *controller = self.viewControllers[index];
+
+        if (!controller.isViewLoaded) {
+            CGRect frame = [self frameAtIndex:index];
+            controller.view.frame = frame;
+        }
+        if (controller.isViewLoaded && !controller.view.superview) {
+            [self.contentScrollView addSubview:controller.view];
+        }
+    }
+    
     // 同步修改tabBar的子视图状态
     [self.tabBar updateSubViewsWhenParentScrollViewScroll:self.contentScrollView];
 }

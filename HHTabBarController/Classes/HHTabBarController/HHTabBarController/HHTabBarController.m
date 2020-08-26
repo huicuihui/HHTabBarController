@@ -34,9 +34,7 @@
 
 - (void)setTabBarFrame:(CGRect)tabBarFrame contentViewFrame:(CGRect)contentViewFrame
 {
-    if (self.tabContentView.headerView) {
-        return;
-    }
+    if (self.tabContentView.headerView) return;
     self.tabBar.frame = tabBarFrame;
     self.tabContentView.frame = contentViewFrame;
 }

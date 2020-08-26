@@ -7,10 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HHTabBarControllerProtocol.h"
 NS_ASSUME_NONNULL_BEGIN
 
+@class HHTabItem;
+
 @interface UIViewController (HHTab)
+
+@property (nonatomic, strong, readonly)HHTabItem *tabItem;
+
+@property (nonatomic, copy)NSString *tabItemTitle;
+@property (nonatomic, strong)UIImage *tabItemImage;
+@property (nonatomic, strong)UIImage *tabItemSelectedImage;
+
 - (void)hh_tabItemDidDeselected;
 @end
 
