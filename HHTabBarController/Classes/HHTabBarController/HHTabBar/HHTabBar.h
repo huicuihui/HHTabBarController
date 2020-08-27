@@ -10,9 +10,6 @@
 #import "HHTabItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
-typedef NS_ENUM(NSInteger, HHTabBarIndicatorAnimationStyle) {
-    HHTabBarIndicatorAnimationStyleDefault = 0,
-};
 
 @class HHTabBar;
 @protocol HHTabBarDelegate <NSObject>
@@ -39,9 +36,6 @@ typedef NS_ENUM(NSInteger, HHTabBarIndicatorAnimationStyle) {
 @interface HHTabBar : UIView
 
 @property (nonatomic, copy)NSArray <HHTabItem *>*items;
-
-/// 指示器动画
-@property (nonatomic, assign)HHTabBarIndicatorAnimationStyle indicatorAnimationStyle;
 
 /// 第一个item与左边或者上边的距离
 @property (nonatomic, assign)CGFloat leadingSpace;

@@ -11,10 +11,15 @@ typedef NS_ENUM(NSInteger, HHTabBarIndicatorStyle) {
     HHTabBarIndicatorStyleFitTitle,
     HHTabBarIndicatorStyleFixedWidth,
 };
+typedef NS_ENUM(NSInteger, HHTabBarIndicatorAnimationStyle) {
+    HHTabBarIndicatorAnimationStyleDefault = 0,
+};
 @interface HHTabBar ()
 /// 选中背景
 @property (nonatomic, strong)UIImageView *indicatorImageView;
 @property (nonatomic, assign)HHTabBarIndicatorStyle indicatorStyle;
+/// 指示器动画
+@property (nonatomic, assign)HHTabBarIndicatorAnimationStyle indicatorAnimationStyle;
 @property (nonatomic, assign)UIEdgeInsets indicatorInsets;
 @property (nonatomic, assign)CGFloat indicatorWidth;
 @property (nonatomic, assign)CGFloat indicatorWidthFixTitleAdditional;

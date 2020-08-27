@@ -71,6 +71,13 @@ shouldSelectTabAtIndex:(NSUInteger)index;
  */
 @property (nonatomic, assign)BOOL removeViewOfChildContollerWhileDeselected;
 
+/**
+ 鉴于有些项目集成了左侧或者右侧侧边栏，当内容视图支持滑动切换时，不能实现在第一页向右滑动和最后一页向左滑动呼出侧边栏的功能，
+ 此2个属性则可以拦截第一页向右滑动和最后一页向左滑动的手势，实现呼出侧边栏的功能
+ */
+@property (nonatomic, assign)BOOL interceptRightSlideGuetureInFirstPage;
+@property (nonatomic, assign)BOOL interceptLeftSlideGuetureInLastPage;
+
 /// 获取被选中的Controller
 - (UIViewController *)selectedController;
 @end

@@ -42,6 +42,8 @@
     _contentScrollView = [[HHTabContentScrollView alloc]initWithFrame:self.bounds];
     _contentScrollView.delegate = self;
     _contentScrollView.hh_delegete = self;
+    _contentScrollView.interceptRightSlideGuetureInFirstPage = self.interceptRightSlideGuetureInFirstPage;
+    _contentScrollView.interceptLeftSlideGuetureInLastPage = self.interceptLeftSlideGuetureInLastPage;
     [self addSubview:_contentScrollView];
     
     //设置_selectedTabIndex为NSNotFound，否则在tabBar代理方法didSelectedItemAtIndex里，会不显示默认的第一个view。
@@ -135,6 +137,15 @@
 - (CGRect)frameAtIndex:(NSUInteger)index
 {
     return CGRectMake(index * self.contentScrollView.bounds.size.width, 0, self.contentScrollView.bounds.size.width, self.contentScrollView.bounds.size.height);
+}
+
+- (void)setInterceptRightSlideGuetureInFirstPage:(BOOL)interceptRightSlideGuetureInFirstPage {
+    _interceptRightSlideGuetureInFirstPage = interceptRightSlideGuetureInFirstPage;
+    self.contentScrollView.interceptRightSlideGuetureInFirstPage = interceptRightSlideGuetureInFirstPage;
+}
+- (void)setInterceptLeftSlideGuetureInLastPage:(BOOL)interceptLeftSlideGuetureInLastPage {
+    _interceptLeftSlideGuetureInLastPage = interceptLeftSlideGuetureInLastPage;
+    self.contentScrollView.interceptLeftSlideGuetureInLastPage = interceptLeftSlideGuetureInLastPage;
 }
 
 - (void)setSelectedTabIndex:(NSUInteger)selectedTabIndex
