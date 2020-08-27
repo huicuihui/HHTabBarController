@@ -37,7 +37,7 @@
     [self.tabBar setScrollEnabledAndItemFitTextWidthWithSpacing:30];
     
     [self initViewControllers];
-    [self.tabContentView setSelectedTabIndex:0];
+    [self.tabContentView setSelectedTabIndex:1];
 }
 - (void)initViewControllers
 {

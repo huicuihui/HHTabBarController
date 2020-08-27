@@ -9,6 +9,20 @@
 #import "HHTabContentScrollView.h"
 
 @implementation HHTabContentScrollView
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.pagingEnabled = YES;
+        self.scrollEnabled = YES;
+        self.showsHorizontalScrollIndicator = NO;
+        self.showsVerticalScrollIndicator = NO;
+        self.scrollsToTop = NO;
+    }
+    return self;
+}
+
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
     UIView *view = [super hitTest:point withEvent:event];

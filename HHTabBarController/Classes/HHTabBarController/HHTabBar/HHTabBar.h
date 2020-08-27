@@ -72,7 +72,7 @@ typedef NS_ENUM(NSInteger, HHTabBarIndicatorAnimationStyle) {
 /// @param titles titles
 - (void)setTitles:(NSArray <NSString *> *)titles;
 
-/// 设置tabBat可以左右滑动
+/// 设置tabBar可以左右滑动
 /// @param width 每个item的宽度
 - (void)setScrollEnabledAndItemWidth:(CGFloat)width;
 - (void)setScrollEnabledAndItemFitTextWidthWithSpacing:(CGFloat)spacing;

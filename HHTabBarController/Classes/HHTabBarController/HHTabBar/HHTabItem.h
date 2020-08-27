@@ -18,9 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HHTabItem : UIButton
 
-/// item在tabBar中的index，此属性不能手动设置
-@property (nonatomic, assign)NSUInteger index;
-
 /// title
 @property (nonatomic, copy)NSString *title;
 @property (nonatomic, strong)UIColor *titleColor;
@@ -37,9 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)UIEdgeInsets indicatorInsets;
 /// 指示器frame
 @property (nonatomic, assign, readonly)CGRect indicatorFrame;
-
-
-
 
 /// 显示badge的数值
 @property (nonatomic, assign)NSInteger badge;

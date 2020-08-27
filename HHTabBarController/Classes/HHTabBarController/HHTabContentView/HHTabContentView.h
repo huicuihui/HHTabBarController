@@ -33,14 +33,13 @@ shouldSelectTabAtIndex:(NSUInteger)index;
 /// @param tabContentView <#tabContentView description#>
 /// @param index <#index description#>
 - (void)tabContentView:(HHTabContentView *)tabContentView
-   didSelectTabAtIndex:(NSUInteger)index;
+ didSelectedTabAtIndex:(NSUInteger)index;
 
 @end
 
 @interface HHTabContentView : UIView
 @property (nonatomic, strong)HHTabBar *tabBar;
-@property (nonatomic, strong)NSArray *subViews;
-
+@property (nonatomic, strong)NSArray *views;
 @property (nonatomic, copy)NSArray <UIViewController *>*viewControllers;
 
 @property (nonatomic, weak)id <HHTabContentViewDelegate> delegate;
@@ -57,6 +56,20 @@ shouldSelectTabAtIndex:(NSUInteger)index;
 
 /// 设置被选中的Tab的Index，界面会自动切换
 @property (nonatomic, assign)NSUInteger selectedTabIndex;
+
+/**
+ *  此属性仅在内容视图支持滑动时有效，它控制child view controller调用viewDidLoad方法的时机
+ *  1. 值为YES时，拖动内容视图，一旦拖动到该child view controller所在的位置，立即加载其view
+ *  2. 值为NO时，拖动内容视图，拖动到该child view controller所在的位置，不会立即展示其view，而是要等到手势结束，scrollView停止滚动后，再加载其view
+ *  3. 默认值为NO
+ */
+@property (nonatomic, assign)BOOL loadViewOfChildControllerWhileAppear;
+
+/**
+ *  在此属性仅在内容视图支持滑动时有效，它控制chile view controller未选中时，是否将其从父view上面移除
+ *  默认为YES
+ */
+@property (nonatomic, assign)BOOL removeViewOfChildContollerWhileDeselected;
 
 /// 获取被选中的Controller
 - (UIViewController *)selectedController;

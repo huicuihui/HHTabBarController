@@ -40,11 +40,6 @@
     _tabBar.delegate = self;
     
     _contentScrollView = [[HHTabContentScrollView alloc]initWithFrame:self.bounds];
-    _contentScrollView.pagingEnabled = YES;
-    _contentScrollView.scrollEnabled = YES;
-    _contentScrollView.showsHorizontalScrollIndicator = NO;
-    _contentScrollView.showsVerticalScrollIndicator = NO;
-    _contentScrollView.scrollsToTop = NO;
     _contentScrollView.delegate = self;
     _contentScrollView.hh_delegete = self;
     [self addSubview:_contentScrollView];
@@ -69,17 +64,17 @@
     }
     [self updateContentViewsFrame];
 }
-- (void)setSubViews:(NSArray *)subViews
+- (void)setViews:(NSArray *)views
 {
     NSMutableArray *tempViews = [NSMutableArray arrayWithCapacity:0];
-    for (int index = 0; index < subViews.count; index++) {
-        UIView *subV = subViews[index];
+    for (int index = 0; index < views.count; index++) {
+        UIView *subV = views[index];
         subV.frame = [self frameAtIndex:index];
         [self.contentScrollView addSubview:subV];
         [tempViews addObject:subV];
     }
-    self.contentScrollView.contentSize = CGSizeMake(self.contentScrollView.bounds.size.width * subViews.count, 0);
-    _subViews = tempViews;
+    self.contentScrollView.contentSize = CGSizeMake(self.contentScrollView.bounds.size.width * views.count, 0);
+    _views = tempViews;
 }
 - (void)setViewControllers:(NSArray<UIViewController *> *)viewControllers
 {
@@ -158,6 +153,9 @@
 }
 - (void)hh_tabBar:(HHTabBar *)tabBar willSelectItemAtIndex:(NSUInteger)index
 {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tabContentView:willSelectTabAtIndex:)]) {
+        [self.delegate tabContentView:self willSelectTabAtIndex:index];
+    }
 }
 - (void)hh_tabBar:(HHTabBar *)tabBar didSelectedItemAtIndex:(NSUInteger)index
 {
@@ -169,14 +167,14 @@
         if ([oldController respondsToSelector:@selector(tabItemDidDeselected)]) {
             [oldController performSelector:@selector(tabItemDidDeselected)];
         }
-//        if (!self.contentScrollEnabled ||
-//                (self.contentScrollEnabled && self.removeViewOfChildContollerWhileDeselected)) {
-//            [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController *_Nonnull controller, NSUInteger idx, BOOL *_Nonnull stop) {
-//                if (idx != index && controller.isViewLoaded && controller.view.superview) {
-//                    [controller.view removeFromSuperview];
-//                }
-//            }];
-//        }
+        if (!self.contentScrollEnabled ||
+            (self.contentScrollEnabled && self.removeViewOfChildContollerWhileDeselected)) {
+            [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController *_Nonnull controller, NSUInteger idx, BOOL *_Nonnull stop) {
+                if (idx != index && controller.isViewLoaded && controller.view.superview) {
+                    [controller.view removeFromSuperview];
+                }
+            }];
+        }
     }
     UIViewController *curController = self.viewControllers[index];
     if (self.contentScrollEnabled) {
@@ -224,9 +222,9 @@
 
     _selectedTabIndex = index;
 
-//    if (self.delegate && [self.delegate respondsToSelector:@selector(tabContentView:didSelectedTabAtIndex:)]) {
-//        [self.delegate tabContentView:self didSelectedTabAtIndex:index];
-//    }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tabContentView:didSelectedTabAtIndex:)]) {
+        [self.delegate tabContentView:self didSelectedTabAtIndex:index];
+    }
 }
 //{
 ////    [self.contentScrollView scrollRectToVisible:[self frameAtIndex:index] animated:YES];
@@ -290,8 +288,7 @@
     // 将需要显示的child view放到scrollView上
     for (NSUInteger index = leftIndex; index <= rightIndex; index++) {
         UIViewController *controller = self.viewControllers[index];
-
-        if (!controller.isViewLoaded) {
+        if (!controller.isViewLoaded && self.loadViewOfChildControllerWhileAppear) {
             CGRect frame = [self frameAtIndex:index];
             controller.view.frame = frame;
         }

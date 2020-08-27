@@ -37,7 +37,6 @@
 - (void)_setup
 {
     self.backgroundColor = [UIColor whiteColor];
-    self.clipsToBounds = YES;
     
     _selectedItemIndex = NSNotFound;
     self.itemTitleColor = [UIColor whiteColor];
@@ -49,6 +48,7 @@
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.scrollEnabled = NO;
     [self addSubview:_scrollView];
+    self.clipsToBounds = YES;
     
     _indicatorImageView = [[UIImageView alloc]initWithFrame:CGRectZero];
     [_scrollView addSubview:_indicatorImageView];
@@ -138,7 +138,7 @@
                 width = MAX(item.titleWidth + self.itemFitTextWidthSpacing, self.itemMinWidth);
             }
             item.frame = CGRectMake(x, 0, width, self.frame.size.height);
-            item.index = index;
+            item.tag = index;
             x += width;
         }
         self.scrollView.contentSize = CGSizeMake(MAX(x + self.trailingSpace, self.scrollView.frame.size.width), self.scrollView.frame.size.height);
@@ -154,7 +154,7 @@
         for (NSUInteger index = 0; index < self.items.count; index++) {
             HHTabItem *item = self.items[index];
             item.frame = CGRectMake(x, 0, self.itemWidth, self.frame.size.height);
-            item.index = index;
+            item.tag = index;
             
             x += self.itemWidth;
         }
@@ -277,7 +277,7 @@
 }
 - (void)tabItemClicked:(HHTabItem *)item
 {
-    self.selectedItemIndex = item.index;
+    self.selectedItemIndex = item.tag;
 }
 
 #pragma mark - 获取未选中字体与选中字体大小的比例

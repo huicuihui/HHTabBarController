@@ -58,10 +58,9 @@
         [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
         [vs addObject:tableView];
     }
-    cv.subViews = vs;
+    cv.views = vs;
     cv.selectedTabIndex = 1;//设置了这个 前面就不要设置tabBar.selectedItemIndex了。
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
