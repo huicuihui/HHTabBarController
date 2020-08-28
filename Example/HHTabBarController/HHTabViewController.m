@@ -38,6 +38,7 @@
     
     [self initViewControllers];
     [self.tabContentView setSelectedTabIndex:1];
+    [self setBadge];
 }
 - (void)initViewControllers
 {
@@ -49,6 +50,19 @@
         vc.tabItemTitle = [NSString stringWithFormat:@"fhdjk%d",i];
     }
     self.viewControllers = viewControllers;
+}
+
+- (void)setBadge
+{
+    for (UIViewController *vc in self.viewControllers) {
+                //badge
+        vc.tabItem.badgeStyle = HHTabItemBadgeStyleNumber;
+        vc.tabItem.badgeTitleFont = [UIFont boldSystemFontOfSize:11];
+        vc.tabItem.badge = 35;
+        vc.tabItem.badgeBackgroundColor = [UIColor cyanColor];
+        vc.tabItem.badgeTitleColor = [UIColor blueColor];
+        [vc.tabItem setNumberBadgeMarginTop:0 centerMarginRight:0 titleHorizonalSpace:0 titleVerticalSpace:0];
+    }
 }
 /*
 #pragma mark - Navigation

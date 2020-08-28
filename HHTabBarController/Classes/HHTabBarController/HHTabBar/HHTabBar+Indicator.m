@@ -52,21 +52,21 @@
 {
     if (self.items.count == 0) return;
     if (self.indicatorStyle == HHTabBarIndicatorStyleFitTitle) {
-        for (HHTabItem *item in self.items) {
+        for (HHTabItemBadge *item in self.items) {
             CGRect frame = item.frameWithOutTransform;
             CGFloat space = (frame.size.width - item.titleWidth - self.indicatorWidthFixTitleAdditional) / 2;
             item.indicatorInsets = UIEdgeInsetsMake(self.indicatorInsets.top, space, self.indicatorInsets.bottom, space);
         }
     }
     else if (self.indicatorStyle == HHTabBarIndicatorStyleFixedWidth) {
-        for (HHTabItem *item in self.items) {
+        for (HHTabItemBadge *item in self.items) {
             CGRect frame = item.frameWithOutTransform;
             CGFloat space = (frame.size.width - self.indicatorWidth) / 2;
             item.indicatorInsets = UIEdgeInsetsMake(self.indicatorInsets.top, space, self.indicatorInsets.bottom, space);
         }
     }
     else if (self.indicatorStyle == HHTabBarIndicatorStyleFitItem) {
-        for (HHTabItem *item in self.items) {
+        for (HHTabItemBadge *item in self.items) {
             item.indicatorInsets = self.indicatorInsets;
         }
     }
@@ -80,7 +80,7 @@
         self.indicatorImageView.frame = CGRectZero;
         return;
     }
-    HHTabItem *item = self.items[index];
+    HHTabItemBadge *item = self.items[index];
     self.indicatorImageView.frame = item.indicatorFrame;
 }
 

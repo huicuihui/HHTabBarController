@@ -8,6 +8,7 @@
 
 #import "UIViewController+HHTab.h"
 #import <objc/runtime.h>
+#import "HHTabBar.h"
 @implementation UIViewController (HHTab)
 
 #pragma mark - 关联属性
@@ -35,6 +36,27 @@
 - (void)setTabItemSelectedImage:(UIImage *)tabItemSelectedImage
 {
     objc_setAssociatedObject(self, @selector(tabItemSelectedImage), tabItemSelectedImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (HHTabItemBadge *)tabItem
+{
+    HHTabBar *tabBar = self.hh_tabBarController.tabBar;
+    if (!tabBar) {
+        return nil;
+    }
+    if (![self.hh_tabBarController.viewControllers containsObject:self]) {
+        return nil;
+    }
+    
+    NSUInteger index = [self.hh_tabBarController.viewControllers indexOfObject:self];
+    return tabBar.items[index];
+}
+- (id<HHTabBarControllerProtocol>)hh_tabBarController
+{
+    if ([self.parentViewController conformsToProtocol:@protocol(HHTabBarControllerProtocol)]) {
+        return (id<HHTabBarControllerProtocol>)self.parentViewController;
+    }
+    return nil;
 }
 
 - (void)hh_tabItemDidDeselected{}
