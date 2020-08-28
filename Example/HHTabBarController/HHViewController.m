@@ -38,7 +38,6 @@
     //这个要在setTitles后面设置
 //    tabBar.selectedItemIndex = 0;
     tabBar.itemFontChangeFollowContentScroll = YES;
-    tabBar.itemColorChangeFollowContentScroll = YES;
     tabBar.indicatorScrollFollowContent = YES;
     tabBar.indicatorAnimationStyle = HHTabBarIndicatorAnimationStyleDefault;
     [self.view addSubview:tabBar];

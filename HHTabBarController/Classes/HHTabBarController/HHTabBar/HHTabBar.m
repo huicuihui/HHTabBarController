@@ -42,7 +42,7 @@
     self.itemTitleColor = [UIColor whiteColor];
     self.itemTitleSelectedColor = [UIColor blackColor];
     self.itemTitleFont = [UIFont systemFontOfSize:10];
-    
+    _itemColorChangeFollowContentScroll = YES;
     _scrollView = [[UIScrollView alloc]initWithFrame:self.bounds];
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
@@ -354,8 +354,14 @@
         CGFloat blueDiff = selectedBlue - normalBlue;
         CGFloat alphaDiff = selectedAlpha - normalAlpha;
         // 根据颜色值的差值和偏移量，设置tabItem的标题颜色
-        leftItem.titleLabel.textColor = [UIColor colorWithRed:leftScale * redDiff + normalRed green:leftScale * greenDiff + normalGreen blue:leftScale * blueDiff + normalBlue alpha:leftScale * alphaDiff + normalAlpha];
-        rightItem.titleLabel.textColor = [UIColor colorWithRed:rightScale * redDiff + normalRed green:rightScale * greenDiff + normalGreen blue:rightScale * blueDiff + normalBlue alpha:rightScale * alphaDiff + normalAlpha];
+        leftItem.titleLabel.textColor = [UIColor colorWithRed:leftScale * redDiff + normalRed
+                                                        green:leftScale * greenDiff + normalGreen
+                                                         blue:leftScale * blueDiff + normalBlue
+                                                        alpha:leftScale * alphaDiff + normalAlpha];
+        rightItem.titleLabel.textColor = [UIColor colorWithRed:rightScale * redDiff + normalRed
+                                                         green:rightScale * greenDiff + normalGreen
+                                                          blue:rightScale * blueDiff + normalBlue
+                                                         alpha:rightScale * alphaDiff + normalAlpha];
     }
     
     // 计算背景的frame
