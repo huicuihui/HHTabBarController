@@ -16,12 +16,12 @@
 #import "HHTabBar+IndicatorExt.h"
 #import "HHTabBar+Item.h"
 #import "HHTabBar.h"
-#import "HHTabItem.h"
 #import "HHTabBarController.h"
 #import "HHTabBarControllerProtocol.h"
 #import "HHTabBarHeader.h"
 #import "HHTabContentScrollView.h"
 #import "HHTabContentView.h"
+#import "HHTabItem.h"
 
 FOUNDATION_EXPORT double HHTabBarControllerVersionNumber;
 FOUNDATION_EXPORT const unsigned char HHTabBarControllerVersionString[];
