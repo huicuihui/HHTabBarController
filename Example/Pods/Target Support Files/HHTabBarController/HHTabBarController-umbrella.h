@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "UIScrollView+HHTab.h"
 #import "UIView+ViewController.h"
 #import "UIViewController+HHTab.h"
 #import "HHTabBar+Indicator.h"
@@ -19,8 +20,10 @@
 #import "HHTabBarController.h"
 #import "HHTabBarControllerProtocol.h"
 #import "HHTabBarHeader.h"
+#import "HHContainerTableView.h"
 #import "HHTabContentScrollView.h"
 #import "HHTabContentView.h"
+#import "HHTabContentWithHeaderView.h"
 #import "HHTabItem.h"
 #import "HHTabItemBadge.h"
 

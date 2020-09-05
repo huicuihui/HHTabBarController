@@ -60,4 +60,9 @@
 }
 
 - (void)hh_tabItemDidDeselected{}
+
+- (UIScrollView *)hh_scrollView
+{
+    return nil;
+}
 @end

@@ -7,13 +7,12 @@
 //
 
 #import "HHTabContentView.h"
-#import "HHTabContentScrollView.h"
 #import "UIView+ViewController.h"
+#import "UIScrollView+HHTab.h"
 @interface HHTabContentView()<HHTabBarDelegate,UIScrollViewDelegate,HHTabContentScrollViewDelegate>
 {
     CGFloat _lastContentScrollViewOffsetX;
 }
-@property (nonatomic, strong)HHTabContentScrollView *contentScrollView;
 
 @property (nonatomic, assign)BOOL isDefaultSelectedTabIndexSetuped;
 
@@ -61,9 +60,9 @@
 {
     [super setFrame:frame];
     if (CGRectEqualToRect(frame, CGRectZero)) return;
-    if (!self.headerView) {
-        self.contentScrollView.frame = self.bounds;
-    }
+//    if (!self.headerView) {
+//        self.contentScrollView.frame = self.bounds;
+//    }
     [self updateContentViewsFrame];
 }
 - (void)setViews:(NSArray *)views
@@ -82,7 +81,9 @@
 {
     for (UIViewController *vc in viewControllers) {
         [vc removeFromParentViewController];
-        if (vc.isViewLoaded) [vc.view removeFromSuperview];
+        if (vc.isViewLoaded) {
+            [vc.view removeFromSuperview];
+        }
     }
     
     _viewControllers = [viewControllers copy];
@@ -125,7 +126,9 @@
         self.contentScrollView.contentSize = CGSizeMake(self.contentScrollView.bounds.size.width * self.viewControllers.count, self.contentScrollView.bounds
                                                         .size.height);
         [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (obj.isViewLoaded) obj.view.frame = [self frameAtIndex:idx];
+            if (obj.isViewLoaded) {
+                obj.view.frame = [self frameAtIndex:idx];
+            }
         }];
         [self.contentScrollView scrollRectToVisible:self.selectedController.view.frame animated:YES];
     } else {
@@ -154,9 +157,15 @@
 }
 - (UIViewController *)selectedController
 {
-    if (self.selectedTabIndex != NSNotFound) return self.viewControllers[self.selectedTabIndex];
+    if (self.selectedTabIndex != NSNotFound) {
+        return self.viewControllers[self.selectedTabIndex];
+    }
     return nil;
 }
+- (UIScrollView *)containerScrollView {
+    return self.contentScrollView;
+}
+
 #pragma mark - HHTabBarDelegate
 - (BOOL)hh_tabBar:(HHTabBar *)tabBar shouldSelectItemAtIndex:(NSUInteger)index
 {
@@ -170,7 +179,9 @@
 }
 - (void)hh_tabBar:(HHTabBar *)tabBar didSelectedItemAtIndex:(NSUInteger)index
 {
-    if (index == self.selectedTabIndex) return;
+    if (index == self.selectedTabIndex) {
+        return;
+    }
     UIViewController *oldController = nil;
     if (self.selectedTabIndex != NSNotFound) {
         oldController = self.viewControllers[self.selectedTabIndex];
@@ -201,27 +212,27 @@
         [self.contentScrollView addSubview:curController.view];
     }
     
-//    if (self.headerView && !curController.yp_scrollView.yp_didScrollHandler) {
-//        __weak YPTabContentView *weakSelf = self;
-//        curController.yp_scrollView.yp_didScrollHandler = ^(UIScrollView *scrollView) {
-//            __strong YPTabContentView *strongSelf = weakSelf;
-//            [strongSelf childScrollViewDidScroll:scrollView];
-//        };
-//    }
-
-//    // 获取是否是第一次被选中的标识
-//
-//    if (curController.yp_hasBeenDisplayed) {
-//        [curController yp_tabItemDidSelected:NO];
-//    } else {
-//        [curController yp_tabItemDidSelected:YES];
-//        curController.yp_hasBeenDisplayed = YES;
-//    }
-
+    if (self.containHeader && !curController.hh_scrollView.hh_didScollHandler) {
+        __weak HHTabContentView *weakSelf = self;
+        curController.hh_scrollView.hh_didScollHandler = ^(UIScrollView * _Nonnull scrollView) {
+            __strong HHTabContentView *strongSelf = weakSelf;
+            [strongSelf childScrollViewDidScroll:scrollView];
+        };
+    }
+    
+    //    // 获取是否是第一次被选中的标识
+    //
+    //    if (curController.yp_hasBeenDisplayed) {
+    //        [curController yp_tabItemDidSelected:NO];
+    //    } else {
+    //        [curController yp_tabItemDidSelected:YES];
+    //        curController.yp_hasBeenDisplayed = YES;
+    //    }
+    
     if ([curController respondsToSelector:@selector(tabItemDidSelected)]) {
         [curController performSelector:@selector(tabItemDidSelected)];
     }
-
+    
     // 当contentView为scrollView及其子类时，设置它支持点击状态栏回到顶部
     if (oldController && [oldController.view isKindOfClass:[UIScrollView class]]) {
         [(UIScrollView *) oldController.view setScrollsToTop:NO];
@@ -230,9 +241,9 @@
         UIScrollView *curScrollView = (UIScrollView *) curController.view;
         [curScrollView setScrollsToTop:YES];
     }
-
+    
     _selectedTabIndex = index;
-
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(tabContentView:didSelectedTabAtIndex:)]) {
         [self.delegate tabContentView:self didSelectedTabAtIndex:index];
     }
@@ -265,6 +276,18 @@
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    if (self.containHeader) {
+        [self containerTableViewDidScroll:scrollView];
+        return;
+    }
+    // 如果不是手势拖动导致的此方法被调用，不处理
+    if (!(scrollView.isDragging || scrollView.isDecelerating)) {
+        if (scrollView.contentOffset.x == 0) {
+            // 解决有时候滑动冲突后scrollView跳动导致的item颜色显示错乱的问题
+            [self.tabBar updateSubViewsWhenParentScrollViewScroll:self.contentScrollView];
+        }
+        return;
+    }
     //滑动越界不处理
     CGFloat offsetX = scrollView.contentOffset.x;
     CGFloat scrollViewWidth = scrollView.frame.size.width;
@@ -291,7 +314,7 @@
         }
     }
     _lastContentScrollViewOffsetX = offsetX;
-
+    
     // 刚好处于能完整显示一个child view的位置
     if (leftIndex == offsetX / scrollViewWidth) {
         rightIndex = leftIndex;
@@ -311,12 +334,16 @@
     // 同步修改tabBar的子视图状态
     [self.tabBar updateSubViewsWhenParentScrollViewScroll:self.contentScrollView];
 }
+
+#pragma mark - 子类重写
+- (void)containerTableViewDidScroll:(UIScrollView *)scrollView{}
+- (void)childScrollViewDidScroll:(UIScrollView *)scrollView {}
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end

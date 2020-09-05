@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1B89031B24F4C541003C198D /* HHTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B89031A24F4C541003C198D /* HHTabViewController.m */; };
+		1BBC271C24FFACFA00020CCE /* HHTabHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC271B24FFACFA00020CCE /* HHTabHeaderViewController.m */; };
+		1BBC271F24FFAE1200020CCE /* HHTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC271E24FFAE1200020CCE /* HHTableViewController.m */; };
+		1BBC272124FFAF2700020CCE /* headerimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBC272024FFAF2700020CCE /* headerimg.png */; };
 		23C2D7A1CEF25343743C0CCB /* Pods_HHTabBarController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8103E5E12951F8E32C9004 /* Pods_HHTabBarController_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -41,6 +44,11 @@
 		124ACCEA0BA05C2BD515A59B /* Pods_HHTabBarController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HHTabBarController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B89031924F4C541003C198D /* HHTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHTabViewController.h; sourceTree = "<group>"; };
 		1B89031A24F4C541003C198D /* HHTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHTabViewController.m; sourceTree = "<group>"; };
+		1BBC271A24FFACFA00020CCE /* HHTabHeaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHTabHeaderViewController.h; sourceTree = "<group>"; };
+		1BBC271B24FFACFA00020CCE /* HHTabHeaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHTabHeaderViewController.m; sourceTree = "<group>"; };
+		1BBC271D24FFAE1200020CCE /* HHTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHTableViewController.h; sourceTree = "<group>"; };
+		1BBC271E24FFAE1200020CCE /* HHTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHTableViewController.m; sourceTree = "<group>"; };
+		1BBC272024FFAF2700020CCE /* headerimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerimg.png; sourceTree = "<group>"; };
 		248F6EFD3C5424E0CC4EA804 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2A2CE242994A00379810EB5E /* Pods-HHTabBarController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHTabBarController_Tests.release.xcconfig"; path = "Target Support Files/Pods-HHTabBarController_Tests/Pods-HHTabBarController_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3F8103E5E12951F8E32C9004 /* Pods_HHTabBarController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HHTabBarController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +149,11 @@
 				6003F5A6195388D20070C39A /* HHViewController.m */,
 				1B89031924F4C541003C198D /* HHTabViewController.h */,
 				1B89031A24F4C541003C198D /* HHTabViewController.m */,
+				1BBC271A24FFACFA00020CCE /* HHTabHeaderViewController.h */,
+				1BBC271B24FFACFA00020CCE /* HHTabHeaderViewController.m */,
+				1BBC271D24FFAE1200020CCE /* HHTableViewController.h */,
+				1BBC271E24FFAE1200020CCE /* HHTableViewController.m */,
+				1BBC272024FFAF2700020CCE /* headerimg.png */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -283,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				1BBC272124FFAF2700020CCE /* headerimg.png in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
@@ -371,8 +385,10 @@
 			files = (
 				6003F59E195388D20070C39A /* HHAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* HHViewController.m in Sources */,
+				1BBC271C24FFACFA00020CCE /* HHTabHeaderViewController.m in Sources */,
 				1B89031B24F4C541003C198D /* HHTabViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				1BBC271F24FFAE1200020CCE /* HHTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

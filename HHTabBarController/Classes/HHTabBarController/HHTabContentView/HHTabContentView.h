@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HHTabBar.h"
 #import "UIViewController+HHTab.h"
+#import "HHTabContentScrollView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -38,13 +39,17 @@ shouldSelectTabAtIndex:(NSUInteger)index;
 @end
 
 @interface HHTabContentView : UIView
+@property (nonatomic, strong)HHTabContentScrollView *contentScrollView;
+
 @property (nonatomic, strong)HHTabBar *tabBar;
 @property (nonatomic, strong)NSArray *views;
 @property (nonatomic, copy)NSArray <UIViewController *>*viewControllers;
 
 @property (nonatomic, weak)id <HHTabContentViewDelegate> delegate;
 
-@property (nonatomic, strong, readonly)UIView *headerView;
+/// 是否有header
+@property (nonatomic, assign)BOOL containHeader;
+
 
 /// 设置内容视图支持滑动切换，以及点击item切换时是否有动画
 /// @param enabled 是否支持滑动切换
@@ -80,6 +85,11 @@ shouldSelectTabAtIndex:(NSUInteger)index;
 
 /// 获取被选中的Controller
 - (UIViewController *)selectedController;
+
+/// header子类调用
+/// @param scrollView <#scrollView description#>
+- (void)containerTableViewDidScroll:(UIScrollView *)scrollView;
+- (void)childScrollViewDidScroll:(UIScrollView *)scrollView;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,12 +10,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class HHTabBar;
-@class HHTabContentView;
+@class HHTabContentWithHeaderView;
 
 @protocol HHTabBarControllerProtocol <NSObject>
 
 @property (nonatomic, strong, readonly)HHTabBar *tabBar;
-@property (nonatomic, strong, readonly)HHTabContentView *tabContentView;
+@property (nonatomic, strong, readonly)HHTabContentWithHeaderView *tabContentView;
 
 @property (nonatomic, copy)NSArray <UIViewController *> *viewControllers;
 

@@ -9,6 +9,8 @@
 #import "HHViewController.h"
 #import <HHTabBarHeader.h>
 #import "HHTabViewController.h"
+#import "HHTabHeaderViewController.h"
+
 @interface HHViewController ()<HHTabBarDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -75,7 +77,11 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self rightAction];
+    if (tableView.tag == 0) {
+        [self.navigationController pushViewController:[HHTabHeaderViewController new] animated:YES];
+    } else {
+        [self rightAction];
+    }
 }
 
 - (BOOL)hh_tabBar:(HHTabBar *)tabBar shouldSelectItemAtIndex:(NSUInteger)index {

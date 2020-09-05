@@ -8,7 +8,7 @@
 #import "HHTabBarController.h"
 
 @interface HHTabBarController ()
-@property (nonatomic, strong)HHTabContentView *tabContentView;
+@property (nonatomic, strong)HHTabContentWithHeaderView *tabContentView;
 @end
 
 @implementation HHTabBarController
@@ -21,7 +21,7 @@
 }
 - (void)_setup
 {
-    _tabContentView = [[HHTabContentView alloc]init];
+    _tabContentView = [[HHTabContentWithHeaderView alloc]init];
     _tabContentView.delegate = self;
 }
 

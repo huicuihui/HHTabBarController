@@ -12,5 +12,6 @@
 #import "HHTabBar+Indicator.h"
 #import "HHTabBar+Item.h"
 #import "HHTabContentView.h"
+#import "HHTabContentWithHeaderView.h"
 
 #endif /* HHTabBarHeader_h */
