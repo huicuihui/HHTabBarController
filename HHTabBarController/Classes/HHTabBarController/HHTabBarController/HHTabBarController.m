@@ -21,6 +21,9 @@
 }
 - (void)_setup
 {
+    //流海屏 页面上下偏移
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
     _tabContentView = [[HHTabContentWithHeaderView alloc]init];
     _tabContentView.delegate = self;
 }
