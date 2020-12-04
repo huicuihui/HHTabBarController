@@ -265,6 +265,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "805988356@qq.com";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = FHBV35YZLP;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -516,6 +519,7 @@
 			baseConfigurationReference = 8C03C8674ED1CDF2F2A1E70C /* Pods-HHTabBarController_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FHBV35YZLP;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHTabBarController/HHTabBarController-Prefix.pch";
 				INFOPLIST_FILE = "HHTabBarController/HHTabBarController-Info.plist";
@@ -532,6 +536,7 @@
 			baseConfigurationReference = 69D6EC968D175133495E244E /* Pods-HHTabBarController_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FHBV35YZLP;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHTabBarController/HHTabBarController-Prefix.pch";
 				INFOPLIST_FILE = "HHTabBarController/HHTabBarController-Info.plist";

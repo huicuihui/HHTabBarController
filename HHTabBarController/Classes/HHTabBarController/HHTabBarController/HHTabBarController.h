@@ -6,8 +6,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HHTabContentWithHeaderView.h"
-#import "HHTabBarControllerProtocol.h"
+#import <HHTabContentWithHeaderView.h>
+#import <HHTabBarControllerProtocol.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
