@@ -59,3 +59,20 @@
     一个UIScrollView，在它的代理中做联动。
 - viewControllers
     viewControllers的setter方法，只添加子控制器，但是不addSubview，在滑动显示时根据`(controller.isViewLoaded && !controller.view.superview)`判断是否应该添加到父控制器的view上。刚开始不显示的时候不加载，不浪费资源和时间。
+
+## 带有头部header
+主要是设置父tableView和子tableView的滑动。
+- 整个View是tableView
+    tableView只有一个cell。cell里面是scrollView，scorllView中有很多Controller的view。tabBar是tableView的组头sectionHeaderView。
+
+
+- header头部固定不动的话，只需要设置tabBarStopOnTopHeight为header的高度即可。
+
+向下滑动scrollView.contentOffset.y<0
+滑动的时候，父tableView和子tableView都会调用，需要都处理。
+1. 向下滑动，子tableView的contentOffset.y<0，就转为父tableView滑动。子tableView的contentOffset为CGPointZero。
+
+向上滑：
+self.containerTableView.contentOffset.y 大于0 并且 小于 stopY：父tableVIew滑动，子tableView不滑动。
+self.containerTableView.contentOffset.y > stopY 父tableView不滑动，子tableView滑动。
+self.containerTableView.contentOffset.y <= 0 父tableView不滑动，子tableView滑动。

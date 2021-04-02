@@ -14,8 +14,6 @@
     CGFloat _lastContentScrollViewOffsetX;
 }
 
-@property (nonatomic, assign)BOOL isDefaultSelectedTabIndexSetuped;
-
 @property (nonatomic, assign)BOOL contentScrollEnabled;
 @property (nonatomic, assign)BOOL contentSwitchAnimated;
 @end
@@ -45,10 +43,9 @@
     _contentScrollView.interceptLeftSlideGuetureInLastPage = self.interceptLeftSlideGuetureInLastPage;
     [self addSubview:_contentScrollView];
     
-    //设置_selectedTabIndex为NSNotFound，否则在tabBar代理方法didSelectedItemAtIndex里，会不显示默认的第一个view。
+    //设置_selectedTabIndex为NSNotFound，否则在tabBar代理方法dDefaultSelectedTabIndexSetupedidSelectedItemAtIndex里，会不显示默认的第一个view。
     _selectedTabIndex = NSNotFound;
     _defaultSelectedTabIndex = 0;
-    _isDefaultSelectedTabIndexSetuped = NO;
 }
 
 - (void)setTabBar:(HHTabBar *)tabBar
@@ -105,10 +102,9 @@
     if (self.contentScrollEnabled) {
         self.contentScrollView.contentSize = CGSizeMake(self.contentScrollView.bounds.size.width * _viewControllers.count, self.contentScrollView.bounds.size.height);
     }
-    if (self.isDefaultSelectedTabIndexSetuped) {
-        _selectedTabIndex = NSNotFound;
-        self.tabBar.selectedItemIndex = 0;
-    }
+
+    _selectedTabIndex = NSNotFound;
+    self.tabBar.selectedItemIndex = self.defaultSelectedTabIndex;
 }
 
 - (void)setContentScrollEnabled:(BOOL)enabled tapSwitchAnimated:(BOOL)animated {
@@ -123,14 +119,13 @@
 - (void)updateContentViewsFrame
 {
     if (self.contentScrollEnabled) {
-        self.contentScrollView.contentSize = CGSizeMake(self.contentScrollView.bounds.size.width * self.viewControllers.count, self.contentScrollView.bounds
-                                                        .size.height);
+        self.contentScrollView.contentSize = CGSizeMake(self.contentScrollView.bounds.size.width * self.viewControllers.count, self.contentScrollView.bounds.size.height);
         [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if (obj.isViewLoaded) {
                 obj.view.frame = [self frameAtIndex:idx];
             }
         }];
-        [self.contentScrollView scrollRectToVisible:self.selectedController.view.frame animated:YES];
+        [self.contentScrollView scrollRectToVisible:self.selectedController.view.frame animated:NO];
     } else {
         self.contentScrollView.contentSize = self.contentScrollView.bounds.size;
         self.selectedController.view.frame = self.contentScrollView.bounds;

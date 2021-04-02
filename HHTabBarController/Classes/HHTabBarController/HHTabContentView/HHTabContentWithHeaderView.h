@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSInteger, HHTabHeaderStyle) {
     HHTabHeaderStyleStretch,
     HHTabHeaderStyleFollow,
+    HHTabHeaderStyleOnlyUp,//header可以跟随滑动向上，不能向下
     HHTabHeaderStyleNone//header固定
 };
 

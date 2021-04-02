@@ -39,6 +39,8 @@ shouldSelectTabAtIndex:(NSUInteger)index;
 @end
 
 @interface HHTabContentView : UIView
+
+/// 内容视图
 @property (nonatomic, strong)HHTabContentScrollView *contentScrollView;
 
 @property (nonatomic, strong)HHTabBar *tabBar;
@@ -86,9 +88,12 @@ shouldSelectTabAtIndex:(NSUInteger)index;
 /// 获取被选中的Controller
 - (UIViewController *)selectedController;
 
-/// header子类调用
+/// 带有header的整个tableView的滑动
 /// @param scrollView <#scrollView description#>
 - (void)containerTableViewDidScroll:(UIScrollView *)scrollView;
+
+/// 子tableView的滑动
+/// @param scrollView <#scrollView description#>
 - (void)childScrollViewDidScroll:(UIScrollView *)scrollView;
 @end
 

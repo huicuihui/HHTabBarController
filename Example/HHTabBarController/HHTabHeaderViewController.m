@@ -53,17 +53,14 @@
 //    }
     bottom += 50;
     
-    CGRect frame = [UIScreen mainScreen].bounds;
-    frame.size.height -= bottom;
     [self.tabContentView setHeaderView:imageView
-                                 style:HHTabHeaderStyleNone
+                                 style:HHTabHeaderStyleOnlyUp
                           headerHeight:250
                           tabBarHeight:44
-                 tabBarStopOnTopHeight:120
-                                 frame:frame];
+                 tabBarStopOnTopHeight:110
+                                 frame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 100)];
         
     [self initViewControllers];
-    [self.tabContentView setSelectedTabIndex:0];
 }
 - (void)initViewControllers {
     HHTableViewController *controller1 = [[HHTableViewController alloc] init];

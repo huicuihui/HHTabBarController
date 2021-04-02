@@ -14,6 +14,8 @@
 @property (nonatomic, strong, readwrite) UIView *headerView;
 @property (nonatomic, strong) UITableViewCell *containerTableViewCell;
 @property (nonatomic, assign) BOOL canChildScroll;
+
+/// 带有header和section的整个的tableView滚动
 @property (nonatomic, assign) BOOL canContentScroll;
 @property (nonatomic, assign) HHTabHeaderStyle headerStyle;
 @property (nonatomic, strong) UIView *tabBarContainerView;
@@ -78,6 +80,7 @@ tabBarStopOnTopHeight:(CGFloat)tabBarStopOnTopHeight
     
     self.contentScrollView.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height - tabBarHeight - self.tabBarStopOnTopHeight);
     self.containerTableViewCell = [[UITableViewCell alloc] init];
+    self.containerTableViewCell.backgroundColor = [UIColor clearColor];
     [self.containerTableViewCell.contentView addSubview:self.contentScrollView];
     
     self.tabBarContainerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, tabBarHeight)];
@@ -99,14 +102,37 @@ tabBarStopOnTopHeight:(CGFloat)tabBarStopOnTopHeight
     }
     CGFloat offsetY = scrollView.contentOffset.y;
     CGFloat stopY = self.headerViewDefaultHeight - self.tabBarStopOnTopHeight;
-    if (!self.canContentScroll) {
-        // 这里通过固定contentOffset的值，来实现不滚动
-        self.containerTableView.contentOffset = CGPointMake(0, stopY);
-    } else if (self.containerTableView.contentOffset.y >= stopY) {
-        self.containerTableView.contentOffset = CGPointMake(0, stopY);
-        self.canContentScroll = NO;
-        self.canChildScroll = YES;
+    if (self.headerStyle == HHTabHeaderStyleOnlyUp) {
+        if (self.selectedController.hh_scrollView.contentOffset.y > 0) {
+            self.containerTableView.contentOffset = CGPointMake(0, stopY);
+            self.canContentScroll = NO;
+            self.canChildScroll = YES;
+        } else {
+            if (self.containerTableView.contentOffset.y >= 0 && self.containerTableView.contentOffset.y <= stopY) {
+                self.canContentScroll = YES;
+                self.canChildScroll = NO;
+            } else if (self.containerTableView.contentOffset.y > stopY) {
+                self.containerTableView.contentOffset = CGPointMake(0, stopY);
+                self.canContentScroll = NO;
+                self.canChildScroll = YES;
+            } else if (self.containerTableView.contentOffset.y <= 0) {
+                self.containerTableView.contentOffset = CGPointZero;
+                self.canContentScroll = NO;
+                self.canChildScroll = YES;
+            }
+        }
     }
+    else {
+        if (!self.canContentScroll) {
+            // 这里通过固定contentOffset的值，来实现不滚动
+            self.containerTableView.contentOffset = CGPointMake(0, stopY);
+        } else if (self.containerTableView.contentOffset.y >= stopY) {
+            self.containerTableView.contentOffset = CGPointMake(0, stopY);
+            self.canContentScroll = NO;
+            self.canChildScroll = YES;
+        }
+    }
+    
     
     scrollView.showsVerticalScrollIndicator = !_canChildScroll;
     
@@ -128,15 +154,29 @@ tabBarStopOnTopHeight:(CGFloat)tabBarStopOnTopHeight
         self.containerTableView.contentOffset = CGPointZero;
         return;
     }
-    if (!self.canChildScroll) {
-        self.selectedController.hh_scrollView.contentOffset = CGPointZero;
-    } else if (self.selectedController.hh_scrollView.contentOffset.y <= 0) {
-        self.selectedController.hh_scrollView.contentOffset = CGPointZero;
-        self.canChildScroll = NO;
-        self.canContentScroll = YES;
-        for (UIViewController *vc in self.viewControllers) {
-            if (vc.isViewLoaded) {
-                vc.hh_scrollView.contentOffset = CGPointZero;
+    if (self.headerStyle == HHTabHeaderStyleOnlyUp) {
+        if (!self.canChildScroll) {
+            self.selectedController.hh_scrollView.contentOffset = CGPointZero;
+        }
+        if (self.selectedController.hh_scrollView.contentOffset.y == 0) {
+            self.selectedController.hh_scrollView.contentOffset = CGPointZero;
+            for (UIViewController *vc in self.viewControllers) {
+                if (vc.isViewLoaded) {
+                    vc.hh_scrollView.contentOffset = CGPointZero;
+                }
+            }
+        }
+    } else {
+        if (!self.canChildScroll) {
+            self.selectedController.hh_scrollView.contentOffset = CGPointZero;
+        } else if (self.selectedController.hh_scrollView.contentOffset.y <= 0) {
+            self.selectedController.hh_scrollView.contentOffset = CGPointZero;
+            self.canChildScroll = NO;
+            self.canContentScroll = YES;
+            for (UIViewController *vc in self.viewControllers) {
+                if (vc.isViewLoaded) {
+                    vc.hh_scrollView.contentOffset = CGPointZero;
+                }
             }
         }
     }
