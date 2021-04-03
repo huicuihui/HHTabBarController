@@ -10,6 +10,7 @@
 #import "HHTabBar.h"
 #import "UIViewController+HHTab.h"
 #import "HHTabContentScrollView.h"
+#import "HHContainerTableView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -50,7 +51,7 @@ shouldSelectTabAtIndex:(NSUInteger)index;
 @property (nonatomic, weak)id <HHTabContentViewDelegate> delegate;
 
 /// 是否有header
-@property (nonatomic, assign)BOOL containHeader;
+@property (nonatomic, strong) HHContainerTableView *containerTableView;
 
 
 /// 设置内容视图支持滑动切换，以及点击item切换时是否有动画

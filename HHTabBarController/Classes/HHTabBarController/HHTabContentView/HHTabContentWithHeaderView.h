@@ -6,7 +6,6 @@
 //
 
 #import "HHTabContentView.h"
-#import "HHContainerTableView.h"
 NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSInteger, HHTabHeaderStyle) {
     HHTabHeaderStyleStretch,
@@ -27,7 +26,6 @@ typedef NS_ENUM(NSInteger, HHTabHeaderStyle) {
 
 @interface HHTabContentWithHeaderView : HHTabContentView
 @property (nonatomic, strong, readonly) UIView *headerView;
-@property (nonatomic, strong) HHContainerTableView *containerTableView;
 
 @property (nonatomic, weak)id <HHTabContentHeaderViewDelegate> headerDelegate;
 

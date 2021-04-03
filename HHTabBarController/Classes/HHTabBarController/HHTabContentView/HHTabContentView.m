@@ -207,7 +207,7 @@
         [self.contentScrollView addSubview:curController.view];
     }
     
-    if (self.containHeader && !curController.hh_scrollView.hh_didScollHandler) {
+    if (self.containerTableView && !curController.hh_scrollView.hh_didScollHandler) {
         __weak HHTabContentView *weakSelf = self;
         curController.hh_scrollView.hh_didScollHandler = ^(UIScrollView * _Nonnull scrollView) {
             __strong HHTabContentView *strongSelf = weakSelf;
@@ -271,7 +271,7 @@
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (self.containHeader) {
+    if (scrollView == self.containerTableView) {
         [self containerTableViewDidScroll:scrollView];
         return;
     }

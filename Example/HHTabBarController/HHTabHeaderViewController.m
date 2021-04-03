@@ -26,7 +26,8 @@
     self.tabBar.itemTitleSelectedFont = [UIFont systemFontOfSize:22];
     
     self.tabBar.itemFontChangeFollowContentScroll = YES;
-    
+
+    self.tabBar.indicatorAnimationStyle = HHTabBarIndicatorAnimationStyleDefault;
     self.tabBar.indicatorScrollFollowContent = YES;
     self.tabBar.indicatorColor = [UIColor redColor];
     [self.tabBar setIndicatorInsets:UIEdgeInsetsMake(40, 10, 0, 10) tapSwitchAnimated:NO];

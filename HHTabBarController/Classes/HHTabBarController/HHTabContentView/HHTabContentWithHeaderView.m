@@ -47,7 +47,6 @@ tabBarStopOnTopHeight:(CGFloat)tabBarStopOnTopHeight
     if (!headerView) {
         return;
     }
-    self.containHeader = YES;
     self.frame = frame;
     self.headerView = headerView;
     
