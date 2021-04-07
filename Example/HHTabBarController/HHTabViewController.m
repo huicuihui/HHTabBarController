@@ -62,7 +62,7 @@
         badgeButton.badge = 35;
         badgeButton.badgeBackgroundColor = [UIColor cyanColor];
         badgeButton.badgeTitleColor = [UIColor blueColor];
-        [badgeButton setNumberBadgeMarginTop:0 centerMarginRight:0 titleHorizonalSpace:0 titleVerticalSpace:0];
+        [badgeButton setNumberBadgeMarginTop:0 centerMarginRight:0 titleHorizonalSpace:5 titleVerticalSpace:0];
     }
 }
 /*
