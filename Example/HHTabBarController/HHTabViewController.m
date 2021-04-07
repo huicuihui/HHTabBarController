@@ -56,12 +56,13 @@
 {
     for (UIViewController *vc in self.viewControllers) {
                 //badge
-        vc.tabItem.badgeStyle = HHTabItemBadgeStyleNumber;
-        vc.tabItem.badgeTitleFont = [UIFont boldSystemFontOfSize:11];
-        vc.tabItem.badge = 35;
-        vc.tabItem.badgeBackgroundColor = [UIColor cyanColor];
-        vc.tabItem.badgeTitleColor = [UIColor blueColor];
-        [vc.tabItem setNumberBadgeMarginTop:0 centerMarginRight:0 titleHorizonalSpace:0 titleVerticalSpace:0];
+        HHBadgeButton *badgeButton = vc.tabItem.badgeButton;
+        badgeButton.badgeStyle = HHTabItemBadgeStyleNumber;
+        badgeButton.badgeTitleFont = [UIFont boldSystemFontOfSize:11];
+        badgeButton.badge = 35;
+        badgeButton.badgeBackgroundColor = [UIColor cyanColor];
+        badgeButton.badgeTitleColor = [UIColor blueColor];
+        [badgeButton setNumberBadgeMarginTop:0 centerMarginRight:0 titleHorizonalSpace:0 titleVerticalSpace:0];
     }
 }
 /*

@@ -1,15 +1,13 @@
 //
-//  HHTabItemBadge.m
+//  HHBadgeButton.m
 //  HHTabBarController
 //
-//  Created by 崔辉辉 on 2020/8/28.
+//  Created by 崔辉辉 on 2021/4/7.
 //
 
-#import "HHTabItemBadge.h"
+#import "HHBadgeButton.h"
 
-@interface HHTabItemBadge ()
-@property (nonatomic, strong)UIButton *badgeButton;
-
+@interface HHBadgeButton()
 /// badgeButton与TabItem顶部的距离
 @property (nonatomic, assign)CGFloat numberBadgeMarginTop;
 /// badgeButton中心与TabItem右侧的距离
@@ -23,7 +21,7 @@
 @property (nonatomic, assign)CGFloat dotBadgeSideLength;
 @end
 
-@implementation HHTabItemBadge
+@implementation HHBadgeButton
 - (instancetype)init
 {
     self = [super init];
@@ -34,22 +32,14 @@
 }
 + (instancetype)buttonWithType:(UIButtonType)buttonType
 {
-    HHTabItemBadge *item = [super buttonWithType:buttonType];
-    [item setup];
-    return item;
+    HHBadgeButton *badgeButton = [super buttonWithType:buttonType];
+    [badgeButton setup];
+    return badgeButton;
 }
 - (void)setup
 {
-    self.badgeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.badgeButton.userInteractionEnabled = NO;
-    self.badgeButton.clipsToBounds = YES;
-    [self addSubview:self.badgeButton];    
-}
-
-- (void)setFrame:(CGRect)frame
-{
-    [super setFrame:frame];
-    [self updateBadge];
+    self.userInteractionEnabled = NO;
+    self.clipsToBounds = YES;
 }
 
 #pragma mark - Badge
@@ -63,7 +53,7 @@
 {
     if (self.badgeStyle == HHTabItemBadgeStyleNumber) {
         if (self.badge == 0) {
-            self.badgeButton.hidden = YES;
+            self.hidden = YES;
         } else {
             NSString *badgeStr = @(self.badge).stringValue;
             if (self.badge > 99) {
@@ -72,7 +62,7 @@
                 badgeStr = @"-99+";
             }
             //计算badgeStr的size
-            CGSize size = [badgeStr boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : self.badgeButton.titleLabel.font} context:nil].size;
+            CGSize size = [badgeStr boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : self.titleLabel.font} context:nil].size;
             //计算badgeButton的宽度和高度
             CGFloat width = ceilf(size.width) + self.numberBadgeTitleHorizonalSpace;
             CGFloat height = ceilf(size.height) + self.numberBadgeTitleVerticalSpace;
@@ -81,18 +71,18 @@
             width = MAX(width, height);
             
             //设置badgedButton的frame
-            self.badgeButton.frame = CGRectMake(self.bounds.size.width - width / 2 - self.numberBadgeCenterMarginRight, self.numberBadgeMarginTop, width, height);
-            self.badgeButton.layer.cornerRadius = self.badgeButton.bounds.size.height / 2.0;
-            [self.badgeButton setTitle:badgeStr forState:UIControlStateNormal];
-            self.badgeButton.hidden = NO;
+            self.frame = CGRectMake(self.superview.bounds.size.width - width / 2 - self.numberBadgeCenterMarginRight, self.numberBadgeMarginTop, width, height);
+            self.layer.cornerRadius = self.bounds.size.height / 2.0;
+            [self setTitle:badgeStr forState:UIControlStateNormal];
+            self.hidden = NO;
         }
     }
     else if (self.badgeStyle == HHTabItemBadgeStyleDot)
     {
-        [self.badgeButton setTitle:nil forState:UIControlStateNormal];
-        self.badgeButton.frame = CGRectMake(self.bounds.size.width - self.dotBadgeCenterMarginRight - self.dotBadgeSideLength, self.dotBadgeMarginTop, self.dotBadgeSideLength, self.dotBadgeSideLength);
-        self.badgeButton.layer.cornerRadius = self.badgeButton.bounds.size.width / 2.0;
-        self.badgeButton.hidden = NO;
+        [self setTitle:nil forState:UIControlStateNormal];
+        self.frame = CGRectMake(self.superview.bounds.size.width - self.dotBadgeCenterMarginRight - self.dotBadgeSideLength, self.dotBadgeMarginTop, self.dotBadgeSideLength, self.dotBadgeSideLength);
+        self.layer.cornerRadius = self.bounds.size.width / 2.0;
+        self.hidden = NO;
     }
 }
 
@@ -121,25 +111,25 @@
 - (void)setBadgeBackgroundColor:(UIColor *)badgeBackgroundColor
 {
     _badgeBackgroundColor = badgeBackgroundColor;
-    self.badgeButton.backgroundColor = badgeBackgroundColor;
+    self.backgroundColor = badgeBackgroundColor;
 }
 
 - (void)setBadgeBackgroundImage:(UIImage *)badgeBackgroundImage
 {
     _badgeBackgroundImage = badgeBackgroundImage;
-    [self.badgeButton setBackgroundImage:badgeBackgroundImage forState:UIControlStateNormal];
+    [self setBackgroundImage:badgeBackgroundImage forState:UIControlStateNormal];
 }
 
 - (void)setBadgeTitleColor:(UIColor *)badgeTitleColor
 {
     _badgeTitleColor = badgeTitleColor;
-    [self.badgeButton setTitleColor:badgeTitleColor forState:UIControlStateNormal];
+    [self setTitleColor:badgeTitleColor forState:UIControlStateNormal];
 }
 
 - (void)setBadgeTitleFont:(UIFont *)badgeTitleFont
 {
     _badgeTitleFont = badgeTitleFont;
-    self.badgeButton.titleLabel.font = badgeTitleFont;
+    self.titleLabel.font = badgeTitleFont;
     [self updateBadge];
 }
 

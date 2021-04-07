@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HHBadgeButton.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HHTabItem : UIButton
@@ -28,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)UIEdgeInsets indicatorInsets;
 /// 指示器frame
 @property (nonatomic, assign, readonly)CGRect indicatorFrame;
+
+@property (nonatomic, strong)HHBadgeButton *badgeButton;
 
 @end
 

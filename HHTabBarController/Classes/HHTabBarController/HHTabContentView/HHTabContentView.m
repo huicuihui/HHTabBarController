@@ -92,7 +92,7 @@
             [containerVC addChildViewController:vc];
         }
         
-        HHTabItemBadge *item = [HHTabItemBadge buttonWithType:UIButtonTypeCustom];
+        HHTabItem *item = [HHTabItem buttonWithType:UIButtonTypeCustom];
         item.title = vc.tabItemTitle;
         [items addObject:item];
     }

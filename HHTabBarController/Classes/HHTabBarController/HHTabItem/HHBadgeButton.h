@@ -1,22 +1,20 @@
 //
-//  HHTabItemBadge.h
+//  HHBadgeButton.h
 //  HHTabBarController
 //
-//  Created by 崔辉辉 on 2020/8/28.
+//  Created by 崔辉辉 on 2021/4/7.
 //
 
-#import "HHTabItem.h"
+#import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
 /// badge样式
 typedef NS_ENUM(NSUInteger, HHTabItemBadgeStyle) {
     HHTabItemBadgeStyleNumber = 0, // 数字样式
     HHTabItemBadgeStyleDot = 1, // 小圆点
 };
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface HHTabItemBadge : HHTabItem
-
+@interface HHBadgeButton : UIButton
 /// 显示badge的数值
 @property (nonatomic, assign)NSInteger badge;
 /// badge的样式
@@ -48,6 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
            centerMarginRight:(CGFloat)centerMarginRight
                    sideLenth:(CGFloat)sideLength;
 
+- (void)updateBadge;
 @end
 
 NS_ASSUME_NONNULL_END

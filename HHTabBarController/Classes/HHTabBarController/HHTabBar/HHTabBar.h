@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HHTabItemBadge.h"
+#import "HHTabItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HHTabBar : UIView
 
-@property (nonatomic, copy)NSArray <HHTabItemBadge *>*items;
+@property (nonatomic, copy)NSArray <HHTabItem *>*items;
 
 /// 第一个item与左边或者上边的距离
 @property (nonatomic, assign)CGFloat leadingSpace;
@@ -60,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak)id<HHTabBarDelegate> delegate;
 
 /// 返回已选中的item
-- (HHTabItemBadge *)selectedItem;
+- (HHTabItem *)selectedItem;
 
 /// 根据titles创建item
 /// @param titles titles

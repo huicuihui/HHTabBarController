@@ -10,11 +10,11 @@
 #import "HHTabBarControllerProtocol.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@class HHTabItemBadge;
+@class HHTabItem;
 
 @interface UIViewController (HHTab)
 
-@property (nonatomic, strong, readonly)HHTabItemBadge *tabItem;
+@property (nonatomic, strong, readonly)HHTabItem *tabItem;
 @property (nonatomic, strong, readonly) id<HHTabBarControllerProtocol> hh_tabBarController;
 
 @property (nonatomic, copy)NSString *tabItemTitle;

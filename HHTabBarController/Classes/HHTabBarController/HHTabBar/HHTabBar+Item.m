@@ -43,7 +43,7 @@
         // item字体不支持平滑切换，更新item的字体
         if (self.itemTitleSelectedFont) {
             // 设置了选中字体，则只要更新未选中的item
-            for (HHTabItemBadge *item in self.items) {
+            for (HHTabItem *item in self.items) {
                 if (!item.selected) {
                     item.titleFont = itemTitleFont;
                 }

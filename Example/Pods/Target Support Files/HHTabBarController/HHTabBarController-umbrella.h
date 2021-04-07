@@ -24,8 +24,8 @@
 #import "HHTabContentScrollView.h"
 #import "HHTabContentView.h"
 #import "HHTabContentWithHeaderView.h"
+#import "HHBadgeButton.h"
 #import "HHTabItem.h"
-#import "HHTabItemBadge.h"
 
 FOUNDATION_EXPORT double HHTabBarControllerVersionNumber;
 FOUNDATION_EXPORT const unsigned char HHTabBarControllerVersionString[];

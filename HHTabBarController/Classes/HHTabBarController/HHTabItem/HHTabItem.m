@@ -31,6 +31,9 @@
 {
     self.adjustsImageWhenHighlighted = NO;
     _indicatorInsets = UIEdgeInsetsZero;
+    
+    self.badgeButton = [HHBadgeButton buttonWithType:UIButtonTypeCustom];
+    [self addSubview:self.badgeButton];
 }
 #pragma mark - 覆盖父类的setHighlighted:方法，按下HHTabBar时，不高亮该item
 - (void)setHighlighted:(BOOL)highlighted
@@ -52,6 +55,8 @@
     _frameWithOutTransform = frame;
     [self calculateIndicatorFrame];
     [self updateFrameOfSubviews];
+    
+    [self.badgeButton updateBadge];
 }
 
 #pragma mark - Title and Image

@@ -67,7 +67,7 @@
         [self updateAllUI];
     }
 }
-- (void)setItems:(NSArray<HHTabItemBadge *> *)items
+- (void)setItems:(NSArray<HHTabItem *> *)items
 {
     _selectedItemIndex = NSNotFound;
     
@@ -76,7 +76,7 @@
     _items = [items copy];
     
     //初始化每一个item
-    for (HHTabItemBadge *item in self.items) {
+    for (HHTabItem *item in self.items) {
         item.titleColor = self.itemTitleColor;
         item.titleSelectedColor = self.itemTitleSelectedColor;
         item.titleFont = self.itemTitleFont;
@@ -93,7 +93,7 @@
 {
     NSMutableArray *items = [NSMutableArray array];
     for (NSString *title in titles) {
-        HHTabItemBadge *item = [[HHTabItemBadge alloc]init];
+        HHTabItem *item = [[HHTabItem alloc]init];
         item.title = title;
         [items addObject:item];
     }
@@ -127,7 +127,7 @@
         //支持滚动
         CGFloat x = self.leadingSpace;
         for (NSUInteger index = 0; index < self.items.count; index++) {
-            HHTabItemBadge *item = self.items[index];
+            HHTabItem *item = self.items[index];
             CGFloat width = 0;
             //item的宽度为一个固定值
             if (self.itemWidth > 0) {
@@ -152,7 +152,7 @@
         self.itemWidth = floorf(self.itemWidth + 0.5f);
         
         for (NSUInteger index = 0; index < self.items.count; index++) {
-            HHTabItemBadge *item = self.items[index];
+            HHTabItem *item = self.items[index];
             item.frame = CGRectMake(x, 0, self.itemWidth, self.frame.size.height);
             item.tag = index;
             
@@ -190,7 +190,7 @@
     }
     
     if (_selectedItemIndex != NSNotFound) {
-        HHTabItemBadge *oldSelectedItem = self.items[_selectedItemIndex];
+        HHTabItem *oldSelectedItem = self.items[_selectedItemIndex];
         oldSelectedItem.selected = NO;
         if (self.itemTitleSelectedFont) {
             if (self.itemFontChangeFollowContentScroll) {
@@ -203,7 +203,7 @@
         }
     }
     
-    HHTabItemBadge *newSelectedItem = self.items[selectedItemIndex];
+    HHTabItem *newSelectedItem = self.items[selectedItemIndex];
     newSelectedItem.selected = YES;
     
     if (self.itemTitleSelectedFont) {
@@ -275,7 +275,7 @@
     }
     [self.scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
 }
-- (void)tabItemClicked:(HHTabItemBadge *)item
+- (void)tabItemClicked:(HHTabItem *)item
 {
     self.selectedItemIndex = item.tag;
 }
@@ -288,7 +288,7 @@
     }
     return 1.0f;
 }
-- (HHTabItemBadge *)selectedItem
+- (HHTabItem *)selectedItem
 {
     if (self.selectedItemIndex == NSNotFound) {
         return nil;
@@ -301,7 +301,7 @@
     if (self.itemTitleSelectedFont && self.itemFontChangeFollowContentScroll && self.itemTitleSelectedFont.pointSize != self.itemTitleFont.pointSize) {
         UIFont *normalFont = [self.itemTitleFont fontWithSize:self.itemTitleSelectedFont.pointSize];
         
-        for (HHTabItemBadge *item in self.items) {
+        for (HHTabItem *item in self.items) {
             if (item.selected) {
                 item.titleFont = self.itemTitleSelectedFont;
             } else {
@@ -320,8 +320,8 @@
     NSUInteger leftIndex = offsetX / scrollViewWidth;
     NSUInteger rightIndex = leftIndex + 1;
     
-    HHTabItemBadge *leftItem = self.items[leftIndex];
-    HHTabItemBadge *rightItem = nil;
+    HHTabItem *leftItem = self.items[leftIndex];
+    HHTabItem *rightItem = nil;
     if (rightIndex < self.items.count) {
         rightItem = self.items[rightIndex];
     }

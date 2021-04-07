@@ -38,7 +38,7 @@
     objc_setAssociatedObject(self, @selector(tabItemSelectedImage), tabItemSelectedImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (HHTabItemBadge *)tabItem
+- (HHTabItem *)tabItem
 {
     HHTabBar *tabBar = self.hh_tabBarController.tabBar;
     if (!tabBar) {
