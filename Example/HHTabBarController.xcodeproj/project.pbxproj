@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B4901112624334800486D12 /* HHTabViewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4901102624334800486D12 /* HHTabViewsController.m */; };
 		1B89031B24F4C541003C198D /* HHTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B89031A24F4C541003C198D /* HHTabViewController.m */; };
 		1BBC271C24FFACFA00020CCE /* HHTabHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC271B24FFACFA00020CCE /* HHTabHeaderViewController.m */; };
 		1BBC271F24FFAE1200020CCE /* HHTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC271E24FFAE1200020CCE /* HHTableViewController.m */; };
@@ -42,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		124ACCEA0BA05C2BD515A59B /* Pods_HHTabBarController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HHTabBarController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B49010F2624334800486D12 /* HHTabViewsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHTabViewsController.h; sourceTree = "<group>"; };
+		1B4901102624334800486D12 /* HHTabViewsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHTabViewsController.m; sourceTree = "<group>"; };
 		1B89031924F4C541003C198D /* HHTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHTabViewController.h; sourceTree = "<group>"; };
 		1B89031A24F4C541003C198D /* HHTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHTabViewController.m; sourceTree = "<group>"; };
 		1BBC271A24FFACFA00020CCE /* HHTabHeaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHTabHeaderViewController.h; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 				6003F59D195388D20070C39A /* HHAppDelegate.m */,
 				6003F5A5195388D20070C39A /* HHViewController.h */,
 				6003F5A6195388D20070C39A /* HHViewController.m */,
+				1B49010F2624334800486D12 /* HHTabViewsController.h */,
+				1B4901102624334800486D12 /* HHTabViewsController.m */,
 				1B89031924F4C541003C198D /* HHTabViewController.h */,
 				1B89031A24F4C541003C198D /* HHTabViewController.m */,
 				1BBC271A24FFACFA00020CCE /* HHTabHeaderViewController.h */,
@@ -390,6 +395,7 @@
 				6003F5A7195388D20070C39A /* HHViewController.m in Sources */,
 				1BBC271C24FFACFA00020CCE /* HHTabHeaderViewController.m in Sources */,
 				1B89031B24F4C541003C198D /* HHTabViewController.m in Sources */,
+				1B4901112624334800486D12 /* HHTabViewsController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				1BBC271F24FFAE1200020CCE /* HHTableViewController.m in Sources */,
 			);

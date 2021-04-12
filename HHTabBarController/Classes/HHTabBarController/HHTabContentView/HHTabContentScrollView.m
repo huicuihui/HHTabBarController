@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.pagingEnabled = YES;
-        self.scrollEnabled = YES;
+        self.scrollEnabled = NO;
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
         self.scrollsToTop = NO;

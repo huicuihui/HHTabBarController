@@ -16,6 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+
     // Do any additional setup after loading the view.
     CGFloat barHeight = 40, buttonWidth = 40;;
     [self setTabBarFrame:CGRectMake(0, 88, [UIScreen mainScreen].bounds.size.width - buttonWidth, barHeight)
@@ -55,7 +57,7 @@
 - (void)setBadge
 {
     for (UIViewController *vc in self.viewControllers) {
-                //badge
+        //badge
         HHBadgeButton *badgeButton = vc.tabItem.badgeButton;
         badgeButton.badgeStyle = HHTabItemBadgeStyleNumber;
         badgeButton.badgeTitleFont = [UIFont boldSystemFontOfSize:11];

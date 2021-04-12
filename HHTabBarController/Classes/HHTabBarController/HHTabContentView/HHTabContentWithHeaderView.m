@@ -59,6 +59,8 @@ tabBarStopOnTopHeight:(CGFloat)tabBarStopOnTopHeight
     [self.contentScrollView removeFromSuperview];
     
     self.containerTableView = [[HHContainerTableView alloc] initWithFrame:self.bounds style:UITableViewStylePlain];
+    //子tableView可以点击状态栏 回到顶部
+    self.containerTableView.scrollsToTop = NO;
     self.containerTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.containerTableView.delegate = self;
     self.containerTableView.dataSource = self;
