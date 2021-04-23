@@ -177,6 +177,13 @@
     if (index == self.selectedTabIndex) {
         return;
     }
+    if (self.views && self.views.count) {
+        {
+            //    [self.contentScrollView scrollRectToVisible:[self frameAtIndex:index] animated:YES];
+            [self.contentScrollView setContentOffset:CGPointMake(self.contentScrollView.bounds.size.width * index, 0) animated:YES];
+        }
+        return;
+    }
     UIViewController *oldController = nil;
     if (self.selectedTabIndex != NSNotFound) {
         oldController = self.viewControllers[self.selectedTabIndex];
@@ -243,10 +250,6 @@
         [self.delegate tabContentView:self didSelectedTabAtIndex:index];
     }
 }
-//{
-////    [self.contentScrollView scrollRectToVisible:[self frameAtIndex:index] animated:YES];
-//    [self.contentScrollView setContentOffset:CGPointMake(self.contentScrollView.bounds.size.width * index, 0) animated:YES];
-//}
 
 #pragma mark - HHTabContentScrollViewDelegate
 - (BOOL)scrollView:(HHTabContentScrollView *)scrollView shouldScrollToPageIndex:(NSUInteger)index
