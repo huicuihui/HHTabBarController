@@ -117,7 +117,8 @@ tabBarStopOnTopHeight:(CGFloat)tabBarStopOnTopHeight
                 self.canContentScroll = NO;
                 self.canChildScroll = YES;
             } else if (self.containerTableView.contentOffset.y <= 0) {
-                self.containerTableView.contentOffset = CGPointZero;
+                //注调这一行，可以加下拉刷新
+//                self.containerTableView.contentOffset = CGPointZero;
                 self.canContentScroll = NO;
                 self.canChildScroll = YES;
             }

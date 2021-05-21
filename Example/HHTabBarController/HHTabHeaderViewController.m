@@ -9,12 +9,13 @@
 #import "HHTabHeaderViewController.h"
 #import <HHTabBarHeader.h>
 #import "HHTableViewController.h"
+#import "MJRefresh.h"
 @interface HHTabHeaderViewController ()
-
+@property (nonatomic, strong)UIView *headerView;
 @end
 
 @implementation HHTabHeaderViewController
-
+static CGFloat tabBarHeight = 44;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -47,6 +48,7 @@
     imageView.contentMode = UIViewContentModeScaleAspectFill;
     imageView.clipsToBounds = YES;
     imageView.userInteractionEnabled = YES;
+    self.headerView = imageView;
     
     CGFloat bottom = 0;
     if (screenSize.height == 812) {
@@ -54,16 +56,37 @@
     }
 //    if ([self.parentViewController isKindOfClass:[YPTabBarController class]]) {
 //    }
-    bottom += 50;
-    
-    [self.tabContentView setHeaderView:imageView
+    [self.tabContentView setHeaderView:self.headerView
                                  style:HHTabHeaderStyleOnlyUp
                           headerHeight:250
-                          tabBarHeight:44
+                          tabBarHeight:tabBarHeight
                  tabBarStopOnTopHeight:110
-                                 frame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 100)];
-        
+                                 frame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 88 - 34)];
     [self initViewControllers];
+
+    [self addRefreshHeader];
+}
+#pragma mark - 添加刷新
+- (void)addRefreshHeader
+{
+    self.tabContentView.containerTableView.mj_header = ({
+        MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.tabContentView.containerTableView.mj_header endRefreshingWithCompletionBlock:^{
+                    [self.tabContentView setHeaderView:self.headerView
+                                                 style:HHTabHeaderStyleOnlyUp
+                                          headerHeight:150
+                                          tabBarHeight:tabBarHeight
+                                 tabBarStopOnTopHeight:110
+                                                 frame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 88 - 34)];
+                    [self addRefreshHeader];
+                }];
+            });
+        }];
+        header.lastUpdatedTimeLabel.hidden = YES;
+        header.stateLabel.hidden = YES;
+        header;
+    });
 }
 - (void)initViewControllers {
     HHTableViewController *controller1 = [[HHTableViewController alloc] init];

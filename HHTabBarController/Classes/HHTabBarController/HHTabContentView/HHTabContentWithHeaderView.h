@@ -29,6 +29,8 @@ typedef NS_ENUM(NSInteger, HHTabHeaderStyle) {
 
 @property (nonatomic, weak)id <HHTabContentHeaderViewDelegate> headerDelegate;
 
+@property (nonatomic, assign)BOOL canRefresh;
+
 /**
  *  设置HeaderView
  *  @param headerView UIView

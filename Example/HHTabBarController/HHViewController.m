@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.navigationController.navigationBar.translucent = NO;
     // Do any additional setup after loading the view.
     [self tableView];
 }
